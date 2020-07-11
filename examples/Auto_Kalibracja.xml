@@ -1,0 +1,651 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="Do/JsnCXKE~{abxuF:::" x="-85" y="-71">
+    <statement name="SETUP_FUNC">
+      <block type="auto_lcd_display" id="c]vST#QD6h=i+S]9QcO1">
+        <value name="POSX">
+          <block type="math_number" id="9R@D+;rXbwLi`E)]jg76">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="+98^.R!_7}:Xd%22iXX4">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text" id="*y1Fqu=@_?60e;HW=Ko*">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="94J:Vikn`;0CFOedZcfh">
+            <field name="VAR">tekst</field>
+            <value name="VALUE">
+              <block type="text" id="PED|mD(+Z|r=EKp!3ny/">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="=DQd4tWZ-=10kB|:5!Ig">
+                <field name="VAR">prędkość</field>
+                <value name="VALUE">
+                  <block type="math_number" id="!fQ!NqPdfM!aY}^aRq{]">
+                    <field name="NUM">150</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="3a-ywu,@dhkkXw@JW0R#">
+                    <field name="VAR">kierunek</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="z2fSG3Q|/}@Wi;%?33Fg">
+                        <field name="NUM">150</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="auto_bt_command" id="ViIUBPn}wUk|w[eHk5:5">
+        <value name="CMD">
+          <block type="text" id="N~YI?SH.PICQ[YII!R@@">
+            <field name="TEXT">F</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="procedures_callnoreturn" id="et*Ey0#x3x[+9{_Cv2~d">
+            <mutation name="do_przodu"></mutation>
+          </block>
+        </statement>
+        <next>
+          <block type="auto_bt_command" id="4hYkBbw^[l?*OxTmE4v~">
+            <value name="CMD">
+              <block type="text" id="[]Ot.,GUQ-c}0@G}O.h3">
+                <field name="TEXT">B</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="procedures_callnoreturn" id="l0_=fvBitN2``hBo6CPI">
+                <mutation name="do_tyłu"></mutation>
+              </block>
+            </statement>
+            <next>
+              <block type="auto_bt_command" id="vX~h%B*zGQcZ!ek:L`vL">
+                <value name="CMD">
+                  <block type="text" id="kg|;8GYWzI|;toW`m;3k">
+                    <field name="TEXT">L2</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="procedures_callnoreturn" id="ZU{2:v;/_uyW-@[@;yWW">
+                    <mutation name="w_lewo"></mutation>
+                  </block>
+                </statement>
+                <next>
+                  <block type="auto_bt_command" id=".03!XM+X/{K)s%-}Ql*!">
+                    <value name="CMD">
+                      <block type="text" id="eO|=6sxY9AZAdZ/v*B69">
+                        <field name="TEXT">R2</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="procedures_callnoreturn" id="w_vH06%Oh;6hTUieaLJ6">
+                        <mutation name="w_prawo"></mutation>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="auto_bt_command" id="o]3ej-5-G]UU|DH63O6U">
+                        <value name="CMD">
+                          <block type="text" id=":%@d},}95_+3lon(R!z?">
+                            <field name="TEXT">S</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="procedures_callnoreturn" id=";x{J^52(!V=~A!su:k5%">
+                            <mutation name="stop"></mutation>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="auto_bt_command" id="qE7;0,dNpZWjNEOgQRsi">
+                            <value name="CMD">
+                              <block type="text" id="@8-5)L^Ls:J3bXT1za/B">
+                                <field name="TEXT">U</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="procedures_callnoreturn" id="D?9bW(PXO[CNxOf!*9=G">
+                                <mutation name="przyspiesz"></mutation>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="auto_bt_command" id="5A4hQlh,X9U5x(4)a6C7">
+                                <value name="CMD">
+                                  <block type="text" id="3e/ogyLt00J*RFEsLG9N">
+                                    <field name="TEXT">D</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="procedures_callnoreturn" id="0-V2`;9x]-=E-(fSyFko">
+                                    <mutation name="zwolnij"></mutation>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="auto_bt_command" id="LbS4xv,jLbQ17r073_0d">
+                                    <value name="CMD">
+                                      <block type="text" id="QR-|J(JE#zjFT4Qd%odR">
+                                        <field name="TEXT">C</field>
+                                      </block>
+                                    </value>
+                                    <statement name="DO">
+                                      <block type="procedures_callnoreturn" id="!uu#brJaqq~*gy*2MiWu">
+                                        <mutation name="stop"></mutation>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="{iqZ;LjUI0HE)~2mX=dD" x="364" y="-64">
+    <mutation>
+      <arg name="tekst"></arg>
+    </mutation>
+    <field name="NAME">wyświetl</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_lcd_display" id="avpOa=kUN,,Wo=6NN{}9">
+        <value name="POSX">
+          <block type="math_number" id="E.Sf*-W(~4DyFkK`eMMi">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="]}%Dy!O1l}w|Reg8Y`=6">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text_join" id="A)]*aFNR{S^omx6J33%N">
+            <mutation items="5"></mutation>
+            <value name="ADD0">
+              <block type="text" id="?kL((y!~iJiN6n)Wh+;@">
+                <field name="TEXT">CMD: </field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="variables_get" id="qL0MFXv[YEJ09(Quzh`P">
+                <field name="VAR">tekst</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="*NwN~Y=87P!FkZt}iX3Y">
+                <field name="TEXT"> SPD: </field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="variables_get" id=".t!EweSyjq)#G#p?e%R3">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <value name="ADD4">
+              <block type="text" id="FWB783Ii-MI1DB:5Mi6[">
+                <field name="TEXT">   </field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="2+S#6|z-FNPK|Wu4@ZHz" x="991" y="-59">
+    <field name="NAME">wyłącz_światła</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_led" id="pFL:`2D+r!vE6PuaJVo.">
+        <field name="LED">ledB</field>
+        <field name="VALUE">0</field>
+        <next>
+          <block type="auto_led" id=",l5plNWFFd20Xn/{%0!B">
+            <field name="LED">ledF</field>
+            <field name="VALUE">0</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="~6I(m9})4ucEQcPz(kW)" x="991" y="56">
+    <field name="NAME">stop</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_motor_stop" id="Mtq4}}`LSzi1ib43]#q|">
+        <field name="MOTOR">motorALL</field>
+        <next>
+          <block type="procedures_callnoreturn" id="gZyy_ge^q38Z2:Qrnd4S">
+            <mutation name="wyłącz_światła"></mutation>
+            <next>
+              <block type="procedures_callnoreturn" id="@-tn#Lz;S@UWMEoOp{:N">
+                <mutation name="wyświetl">
+                  <arg name="tekst"></arg>
+                </mutation>
+                <value name="ARG0">
+                  <block type="text" id="TdQ%GIrF-kV/Oo(13=v1">
+                    <field name="TEXT">S</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="bSk{0TOa*n+d`xUBmHoG" x="364" y="142">
+    <field name="NAME">do_przodu</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_motor" id="IxtT6_=Ld9;M=BP;?D|a">
+        <field name="MOTOR">motorALL</field>
+        <field name="FUNCTION">forward</field>
+        <value name="SPEED">
+          <block type="variables_get" id=":!q#kkZD?TWPveSxU8?N">
+            <field name="VAR">kierunek</field>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="TLA,sj_2gE@lwr2J(!3q">
+            <mutation name="wyłącz_światła"></mutation>
+            <next>
+              <block type="auto_led" id="|iJgcn2(2Tvqft3+X!nM">
+                <field name="LED">ledF</field>
+                <field name="VALUE">1</field>
+                <next>
+                  <block type="procedures_callnoreturn" id="r~*h#g}7H,?g38oyH@/D">
+                    <mutation name="wyświetl">
+                      <arg name="tekst"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="text" id="fG,c_JMly!2Nii_jU{E0">
+                        <field name="TEXT">F</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="q}i)kk(bL`}YUbF?(1Mb" x="993" y="257">
+    <field name="NAME">w_prawo</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_motor" id="Bwml?n1C@ROWJg7^z9IM">
+        <field name="MOTOR">motorL</field>
+        <field name="FUNCTION">forward</field>
+        <value name="SPEED">
+          <block type="variables_get" id="@({l{TEkUE(T11Q`,HQr">
+            <field name="VAR">kierunek</field>
+          </block>
+        </value>
+        <next>
+          <block type="auto_motor" id="gL#rHROL8)gi28]Nrp[9">
+            <field name="MOTOR">motorR</field>
+            <field name="FUNCTION">forward</field>
+            <value name="SPEED">
+              <block type="variables_get" id="yyMZDT1}/lOkQQ!^t/ZB">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="wDMA?;SQQesTU8.qIj+_">
+                <mutation name="wyłącz_światła"></mutation>
+                <next>
+                  <block type="auto_led" id="hXs+`H%!c7Zi6A`Jj3R.">
+                    <field name="LED">ledR</field>
+                    <field name="VALUE">1</field>
+                    <next>
+                      <block type="procedures_callnoreturn" id="znq;G2{o#7!R6+Oa?4z7">
+                        <mutation name="wyświetl">
+                          <arg name="tekst"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="text" id="9sgVA8Ryjz,7TR/6?s(W">
+                            <field name="TEXT">R</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="IlS-7Y~31ahF2y{iQ2Jg" x="364" y="380">
+    <field name="NAME">do_tyłu</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_motor" id="#)IETabA6hi|9?^%!_gE">
+        <field name="MOTOR">motorALL</field>
+        <field name="FUNCTION">backward</field>
+        <value name="SPEED">
+          <block type="variables_get" id="m,Iba*V:DzoECe-6/=5H">
+            <field name="VAR">kierunek</field>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="[1sPeS/[RT1xHajtQo@W">
+            <mutation name="wyłącz_światła"></mutation>
+            <next>
+              <block type="auto_led" id="D|!V9Vh{(dxP+JsTkVSG">
+                <field name="LED">ledB</field>
+                <field name="VALUE">1</field>
+                <next>
+                  <block type="procedures_callnoreturn" id="BMlmk;8#6_iNKoo0Y^n@">
+                    <mutation name="wyświetl">
+                      <arg name="tekst"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="text" id=",(s;^EAVd}TBLIelO?}Q">
+                        <field name="TEXT">B</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="{u1P)927bHUfdX?=:3%p" x="993" y="544">
+    <field name="NAME">w_lewo</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_motor" id="/DM1F?FR_#Qo**tTBhtJ">
+        <field name="MOTOR">motorL</field>
+        <field name="FUNCTION">forward</field>
+        <value name="SPEED">
+          <block type="variables_get" id="e:e[h,:6@A%.cMrV3GxJ">
+            <field name="VAR">prędkość</field>
+          </block>
+        </value>
+        <next>
+          <block type="auto_motor" id="uBrj=7i4e1Mk~|-QC/sZ">
+            <field name="MOTOR">motorR</field>
+            <field name="FUNCTION">forward</field>
+            <value name="SPEED">
+              <block type="variables_get" id="!HOKX#k~]Hi]uu0/%g}f">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="jl(0JCK2tX!wGb(NQuST">
+                <mutation name="wyłącz_światła"></mutation>
+                <next>
+                  <block type="auto_led" id="@t`:|Kw=v]{mZ!T,pS{5">
+                    <field name="LED">ledL</field>
+                    <field name="VALUE">1</field>
+                    <next>
+                      <block type="procedures_callnoreturn" id="sgqS~/)o4Nf5SL8HPg0;">
+                        <mutation name="wyświetl">
+                          <arg name="tekst"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="text" id=")Xn_1;.xTus8dF9?.9Cu">
+                            <field name="TEXT">L</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="}Sq!Of^S%V#~yh7H07Y7" x="366" y="608">
+    <field name="NAME">wyślij_prędkość</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_bt_message" id="k`2-8qzE;e9BTu4QHKWQ">
+        <value name="CMD">
+          <block type="text_join" id="[fRkQ}`PmbWz9TAZi_c3">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="text" id="y7-*N@Xy^TEQ0L}p;,[K">
+                <field name="TEXT">.V</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="variables_get" id=")k#D{UzuUEFVBKoDE;}:">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="uo)y_H6[jjmko:*B;H9;">
+                <field name="TEXT">.</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="L8~)ba8nU?SvMf:DGB*y" x="-83" y="769">
+    <field name="NAME">sygnał</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_buzzer" id="V.71KA)ZU3E!nRvZ#Fy-">
+        <field name="VALUE">LOW</field>
+        <next>
+          <block type="auto_timer_once" id="DqlNdi^m5Gs%L+xE+Ss_">
+            <value name="TIME">
+              <block type="math_number" id="`,(1(1w^8TQWW{%`K.el">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_buzzer" id="?[=-L:UF=jlHWGIB[#J/">
+                <field name="VALUE">HIGH</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="pbTu@Uc.k[zELir7ZbOX" x="361" y="805">
+    <field name="NAME">zwolnij</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id=")sY-t}Is2N`B:17DVWwN">
+        <field name="VAR">prędkość</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="#NeNK.ZBL~pk{0YRw[^a">
+            <field name="OP">MINUS</field>
+            <value name="A">
+              <block type="variables_get" id="|hCQLCX9QQhyr9}tgSpX">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="R+p~;/sl`)SA[ia+or=X">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="G~Z[[t]_EWUC@:?Xu}+R">
+            <value name="IF0">
+              <block type="logic_compare" id="/KciM,t8x7q_f30n3{Bh">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="variables_get" id="X]:+@d2ZZ`ZWDc1KpmKh">
+                    <field name="VAR">prędkość</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="Rpz6/X:O9?niuW6;7;x@">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="ubEIVT8bjnzs/IPgBoeU">
+                <field name="VAR">prędkość</field>
+                <value name="VALUE">
+                  <block type="math_number" id="+%k0,_zf=AR14yfT+UsF">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="procedures_callnoreturn" id="1S?EH8=;Vu]i:CT^?M57">
+                <mutation name="wyślij_prędkość"></mutation>
+                <next>
+                  <block type="procedures_callnoreturn" id="jk`h~xAz!HfiJXO_J*rL">
+                    <mutation name="wyświetl">
+                      <arg name="tekst"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="text" id="V*=W/#:|7:MC9YBiu(_*">
+                        <field name="TEXT">D</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="osgoQ@brWzq;qg,M*tf)" x="921" y="814">
+    <field name="NAME">przyspiesz</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="WB0Q(nMQz,to:Cgo7k]o">
+        <field name="VAR">prędkość</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="P~N~O439#OFp%5Mzk^%5">
+            <field name="OP">ADD</field>
+            <value name="A">
+              <block type="variables_get" id="rE4DX(OIheR+-ifw:.93">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="T0o)_37[4+]?*41{mBG.">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="rY9w#IB#{c2v2]_D566r">
+            <value name="IF0">
+              <block type="logic_compare" id="LBPdI,kNjsmpemgY%/We">
+                <field name="OP">GT</field>
+                <value name="A">
+                  <block type="variables_get" id="86tDsdn@g,R.J]KCVpS8">
+                    <field name="VAR">prędkość</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="variables_get" id="C6-6V*M/Lpy/#0U~fpAQ">
+                    <field name="VAR">kierunek</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="kkm9EN(:)WNx3.TF6Jn_">
+                <field name="VAR">prędkość</field>
+                <value name="VALUE">
+                  <block type="variables_get" id="`;;F0w:P,K;5T[np#bt~">
+                    <field name="VAR">kierunek</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="procedures_callnoreturn" id="%?|zN/62d*cNmld^fam;">
+                <mutation name="wyślij_prędkość"></mutation>
+                <next>
+                  <block type="procedures_callnoreturn" id=",DGAV,pYJ3;3_V6)+7=A">
+                    <mutation name="wyświetl">
+                      <arg name="tekst"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="text" id="7jEfIPJosxG3*O!azAum">
+                        <field name="TEXT">U</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="f-xNl%lA-z:FaY:0pcXO" x="-85" y="951">
+    <value name="TIME">
+      <block type="math_number" id="ZJ^4/Xj6Ej9y8`Voo9)T">
+        <field name="NUM">1000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="%d1!U6l,C6E{Ea8L^4v|">
+        <field name="LED">ledT</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_timer_once" id="]CIay3?qo!L^oq=;:Uu_">
+            <value name="TIME">
+              <block type="math_number" id="^#.Ku*)`3h93me1+r{_8">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id="Bfh5^:ZiHBeOPqE8S|*;">
+                <field name="LED">ledT</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

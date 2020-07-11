@@ -1,0 +1,159 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="M6+4z]p3R78R=8X?_zfW" x="40" y="38">
+    <statement name="SETUP_FUNC">
+      <block type="auto_lcd_display" id="Q?S]J6M8@GYPQb!F@2SI">
+        <value name="POSX">
+          <block type="math_number" id="9aTZ6G-IGqVq(xBoA+[@">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="n#yuFf2ykqLo{4:zp4+Q">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text" id="PB!wnE2Rp@S!w#L%`O7!">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="98@R{_@8Wo*,0?+P@:#E" x="39" y="190">
+    <value name="TIME">
+      <block type="math_number" id="F@88{::nYvyFlIa[}V;D">
+        <field name="NUM">200</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id=";o_Br(4@?2YBitW9=C:?">
+        <field name="LED">ledFLG</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_led" id="^L^oD8a4SKsHb0!8+1cg">
+            <field name="LED">ledFRG</field>
+            <field name="VALUE">1</field>
+            <next>
+              <block type="auto_timer_once" id="+j14^uz!Ps01qxWHJ|N-">
+                <value name="TIME">
+                  <block type="math_number" id="nY?N)r?6J_?:Ab4Xeu[F">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="auto_led" id="azd+=TwZ6gdo:b*utgP3">
+                    <field name="LED">ledFLG</field>
+                    <field name="VALUE">0</field>
+                    <next>
+                      <block type="auto_led" id="u`e0YXP7yjK!M0)huwwb">
+                        <field name="LED">ledFRG</field>
+                        <field name="VALUE">0</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id=",RYEI0%R%AhR1ALY@Do}" x="538" y="195">
+    <value name="TIME">
+      <block type="math_number" id="v]H-b;5K~9yiSiZxBsGg">
+        <field name="NUM">1000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="Ke4u_:sneC]DWhKcyjQ]">
+        <field name="LED">ledB</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_timer_once" id="_!dK0)z!c6ObF*Dd0DO/">
+            <value name="TIME">
+              <block type="math_number" id="N3SHYYp[{NLd)UJtwhpD">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id="oZM@qmuqd[yOO!uH%3H{">
+                <field name="LED">ledB</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="`E+VW?MLrwu=5Tne`~I`" x="39" y="415">
+    <value name="TIME">
+      <block type="math_number" id="wCg6nlZ)0Cz{u{bzrB+(">
+        <field name="NUM">2000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="B=htZdZnUN|6D]:t[WN9">
+        <field name="LED">ledFLY</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_led" id="~5.`As,6j`+lz~Qfv%t[">
+            <field name="LED">ledFRY</field>
+            <field name="VALUE">1</field>
+            <next>
+              <block type="auto_timer_once" id="T=CX[f[gMUvW#[hhka2x">
+                <value name="TIME">
+                  <block type="math_number" id="+WE;FxI?1KHV.HnVVK+b">
+                    <field name="NUM">500</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="auto_led" id=".a`lK7zP`5]g(#MI#{pq">
+                    <field name="LED">ledFLY</field>
+                    <field name="VALUE">0</field>
+                    <next>
+                      <block type="auto_led" id="tB7kdLRNmPwP`lk%!]F)">
+                        <field name="LED">ledFRY</field>
+                        <field name="VALUE">0</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="ki2r(Y#Yph+uuD{I7R0s" x="537" y="419">
+    <value name="TIME">
+      <block type="math_number" id="{o=].8k][Q5uU|o{(FJ9">
+        <field name="NUM">500</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="oM3qd!b9_dkp`IId*Fwx">
+        <field name="LED">ledT</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_timer_once" id="0sR*1_]JpQSoyLPuo@P^">
+            <value name="TIME">
+              <block type="math_number" id="p3pPL:!C^?EJQoM,rlH!">
+                <field name="NUM">250</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id="@:;PCxG)`?)Zkc~{@,cD">
+                <field name="LED">ledT</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

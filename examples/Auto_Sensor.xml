@@ -1,0 +1,120 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="auto_timer_cyclic" id="ki2r(Y#Yph+uuD{I7R0s" x="38" y="20">
+    <value name="TIME">
+      <block type="math_number" id="{o=].8k][Q5uU|o{(FJ9">
+        <field name="NUM">500</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="oM3qd!b9_dkp`IId*Fwx">
+        <field name="LED">ledT</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_timer_once" id="0sR*1_]JpQSoyLPuo@P^">
+            <value name="TIME">
+              <block type="math_number" id="p3pPL:!C^?EJQoM,rlH!">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id="@:;PCxG)`?)Zkc~{@,cD">
+                <field name="LED">ledT</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="|6=7yag^sj%=!:Oqs;zt" x="417" y="25">
+    <value name="TIME">
+      <block type="math_number" id="qVB,i#7WXPh8w%os1f[7">
+        <field name="NUM">100</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="variables_set" id="Zxa=hLll0%+Gx-Zr?E(Q">
+        <field name="VAR">odległość</field>
+        <value name="VALUE">
+          <block type="auto_ultrasonic" id=":@0/zqADMo3DY%8BLZt+">
+            <field name="UNIT">cm</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="Ci~f-GfxiXc@~3igQyeg" x="40" y="237">
+    <value name="TIME">
+      <block type="math_number" id=",46c-,?k6/]nk`XmT5a[">
+        <field name="NUM">500</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_lcd_display" id="Q?S]J6M8@GYPQb!F@2SI">
+        <value name="POSX">
+          <block type="math_number" id="9aTZ6G-IGqVq(xBoA+[@">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="n#yuFf2ykqLo{4:zp4+Q">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text_join" id="!;jzINns9t%.qT;IPP`S">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="text" id="e5},IV33KQi)m_yFUo]0">
+                <field name="TEXT">Odl: </field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="variables_get" id="^xuSo,HU0B+%GJU@^OL1">
+                <field name="VAR">odległość</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="C)}6R9:AF@XAEgZp15}[">
+                <field name="TEXT"> cm          </field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="%rE4}j,uytf3*gSG`#p,">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="-h?n,0(9B{q~U!I4eySS">
+                <field name="OP">LTE</field>
+                <value name="A">
+                  <block type="variables_get" id="{k6{qJ;LJS`8}pjar1hC">
+                    <field name="VAR">odległość</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="UjfghFr93r*W8+QrGA!,">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="auto_led" id="^VQf2h+-{=(eDyxqsNAv">
+                <field name="LED">ledB</field>
+                <field name="VALUE">1</field>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="auto_led" id="KGuwi.sfv}jjXIHIY?2X">
+                <field name="LED">ledB</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

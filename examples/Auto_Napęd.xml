@@ -1,0 +1,94 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="auto_timer_cyclic" id=".oCRUUiNaHO5S:97@h5|" x="41" y="21">
+    <value name="TIME">
+      <block type="math_number" id="}ATassVF?0UKe)W8Fshe">
+        <field name="NUM">10000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_motor" id="%Ky1D[8~hmL.oT!zf-P9">
+        <field name="MOTOR">motorR</field>
+        <field name="FUNCTION">forward</field>
+        <value name="SPEED">
+          <block type="math_number" id="-IcEFVgYb7@Ar0uOM{VG">
+            <field name="NUM">200</field>
+          </block>
+        </value>
+        <next>
+          <block type="auto_timer_once" id="cQ*=f.hs|R**9^m`R}Sm">
+            <value name="TIME">
+              <block type="math_number" id="60^E6~e~%fGcVdg3w+()">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_motor_stop" id="/~E~!c2Fey+5#dk~A;pG">
+                <field name="MOTOR">motorR</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="LA2n=Igh4@0V?AdOByMx" x="556" y="24">
+    <value name="TIME">
+      <block type="math_number" id="R^v`sRo*I:^F}CZ,U]?v">
+        <field name="NUM">1000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="M6,82qh`,`*%Rjw4}3A5">
+        <field name="LED">ledT</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_timer_once" id="XH*x!{nnGN)|qv}3@]KN">
+            <value name="TIME">
+              <block type="math_number" id="Gie{5OuwKDpW%RRc(fu{">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id=",OQ9-McoiN.^X1~Omc3:">
+                <field name="LED">ledT</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="Q*+BM4!:vxOZSq![/yn|" x="41" y="211">
+    <value name="TIME">
+      <block type="math_number" id="#OXKbvC/}5^N?yg?Xfr@">
+        <field name="NUM">11000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_motor" id="eyWYl_CNCph,lT.YER}2">
+        <field name="MOTOR">motorL</field>
+        <field name="FUNCTION">forward</field>
+        <value name="SPEED">
+          <block type="math_number" id="7F+hC{CTg4KSF9j:zR2I">
+            <field name="NUM">200</field>
+          </block>
+        </value>
+        <next>
+          <block type="auto_timer_once" id="{4}x0X%7P+e{UdNiKUSi">
+            <value name="TIME">
+              <block type="math_number" id="S=R;V*:yXv5PsGr#rS!q">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_motor_stop" id="Ad(vU?N66J*g_ha!{U51">
+                <field name="MOTOR">motorL</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

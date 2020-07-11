@@ -1,0 +1,68 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="auto_timer_cyclic" id="vYIo}#y.V.`:jCel%IPT" x="57" y="39">
+    <value name="TIME">
+      <block type="math_number" id="u`]z,Kosucb[O|dXHcDG">
+        <field name="NUM">10000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="gSI9%{.gC8!pZ;iup98|">
+        <field name="LED">ledF</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_buzzer" id="o#3MeH0ogMAXpB8)Uz3:">
+            <field name="VALUE">LOW</field>
+            <next>
+              <block type="auto_timer_once" id="d%#l-Lppw_EW,hiegY6Y">
+                <value name="TIME">
+                  <block type="math_number" id="zhp]dIL~SeN#PtTZB{GK">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="auto_led" id="Y-8//)jP,d5#ZlHUR=Os">
+                    <field name="LED">ledF</field>
+                    <field name="VALUE">0</field>
+                    <next>
+                      <block type="auto_buzzer" id="QGszNH^WaA9[mg0.:^i1">
+                        <field name="VALUE">HIGH</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="Mv#WgzOM-Vy!Zzmrke-o" x="466" y="42">
+    <value name="TIME">
+      <block type="math_number" id="H0qRg/sZ]m`zc!):,{X|">
+        <field name="NUM">1000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="_]!}+d4_t-[vg)[F%[Pe">
+        <field name="LED">ledT</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_timer_once" id="Y)mg})Q/XPt9WBqWc,)F">
+            <value name="TIME">
+              <block type="math_number" id="7KP~:ReZ8@Je-2@LHwOd">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id="w.f!~v1LK3m^}x?Xj^RR">
+                <field name="LED">ledT</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

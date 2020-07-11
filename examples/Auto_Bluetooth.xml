@@ -1,0 +1,210 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="Do/JsnCXKE~{abxuF:::" x="36" y="49">
+    <statement name="SETUP_FUNC">
+      <block type="auto_lcd_display" id="c]vST#QD6h=i+S]9QcO1">
+        <value name="POSX">
+          <block type="math_number" id="9R@D+;rXbwLi`E)]jg76">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="+98^.R!_7}:Xd%22iXX4">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text" id="*y1Fqu=@_?60e;HW=Ko*">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="94J:Vikn`;0CFOedZcfh">
+            <field name="VAR">x</field>
+            <value name="VALUE">
+              <block type="text" id="PED|mD(+Z|r=EKp!3ny/">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="auto_bt_command" id="ViIUBPn}wUk|w[eHk5:5">
+        <value name="CMD">
+          <block type="text" id="N~YI?SH.PICQ[YII!R@@">
+            <field name="TEXT">F</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="auto_led" id="ks*jZt]@[b~%+.3LS#gM">
+            <field name="LED">ledB</field>
+            <field name="VALUE">1</field>
+            <next>
+              <block type="procedures_callnoreturn" id="514O-q/K}X[1ipkBNa,r">
+                <mutation name="wyświetl">
+                  <arg name="x"></arg>
+                </mutation>
+                <value name="ARG0">
+                  <block type="text" id="Xx=Q1._38oyMw0Z!TSxq">
+                    <field name="TEXT">F</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="auto_bt_command" id="4hYkBbw^[l?*OxTmE4v~">
+            <value name="CMD">
+              <block type="text" id="[]Ot.,GUQ-c}0@G}O.h3">
+                <field name="TEXT">B</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id="{,@{*,bK1O)#|{#Wkm_A">
+                <field name="LED">ledB</field>
+                <field name="VALUE">0</field>
+                <next>
+                  <block type="procedures_callnoreturn" id="NW9ZjUvM0K4koT3+i#1T">
+                    <mutation name="wyświetl">
+                      <arg name="x"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="text" id="IH|TSmo]S=V9=62w]3Vp">
+                        <field name="TEXT">B</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="auto_bt_command" id="vX~h%B*zGQcZ!ek:L`vL">
+                <value name="CMD">
+                  <block type="text" id="kg|;8GYWzI|;toW`m;3k">
+                    <field name="TEXT">L</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="auto_led" id="Im#g,hO9u%Z42c@N={2J">
+                    <field name="LED">ledF</field>
+                    <field name="VALUE">1</field>
+                    <next>
+                      <block type="procedures_callnoreturn" id="bN2k@uzutD2rs|yGL4}{">
+                        <mutation name="wyświetl">
+                          <arg name="x"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="text" id="m)oa{{D6n;s,u52^w_+@">
+                            <field name="TEXT">L</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="auto_bt_command" id=".03!XM+X/{K)s%-}Ql*!">
+                    <value name="CMD">
+                      <block type="text" id="eO|=6sxY9AZAdZ/v*B69">
+                        <field name="TEXT">R</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="auto_led" id="]k4AAu:+KtQsmhy0vysk">
+                        <field name="LED">ledF</field>
+                        <field name="VALUE">0</field>
+                        <next>
+                          <block type="procedures_callnoreturn" id="OabQY!c+Et2MbL:jC=Gy">
+                            <mutation name="wyświetl">
+                              <arg name="x"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="text" id="FPQSpUr|vP@A7N]ECL`B">
+                                <field name="TEXT">R</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="{iqZ;LjUI0HE)~2mX=dD" x="350" y="170">
+    <mutation>
+      <arg name="x"></arg>
+    </mutation>
+    <field name="NAME">wyświetl</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_lcd_display" id="avpOa=kUN,,Wo=6NN{}9">
+        <value name="POSX">
+          <block type="math_number" id="E.Sf*-W(~4DyFkK`eMMi">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="]}%Dy!O1l}w|Reg8Y`=6">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text_join" id="A)]*aFNR{S^omx6J33%N">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="text" id="?kL((y!~iJiN6n)Wh+;@">
+                <field name="TEXT">Komenda BT: </field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="variables_get" id="qL0MFXv[YEJ09(Quzh`P">
+                <field name="VAR">x</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="*NwN~Y=87P!FkZt}iX3Y">
+                <field name="TEXT">         </field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="f-xNl%lA-z:FaY:0pcXO" x="489" y="389">
+    <value name="TIME">
+      <block type="math_number" id="ZJ^4/Xj6Ej9y8`Voo9)T">
+        <field name="NUM">1000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="%d1!U6l,C6E{Ea8L^4v|">
+        <field name="LED">ledT</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_timer_once" id="]CIay3?qo!L^oq=;:Uu_">
+            <value name="TIME">
+              <block type="math_number" id="^#.Ku*)`3h93me1+r{_8">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id="Bfh5^:ZiHBeOPqE8S|*;">
+                <field name="LED">ledT</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

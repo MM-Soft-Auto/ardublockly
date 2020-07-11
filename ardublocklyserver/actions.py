@@ -8,6 +8,7 @@ Licensed under the Apache License, Version 2.0 (the "License"):
 from __future__ import unicode_literals, absolute_import, print_function
 import subprocess
 import locale
+import platform
 import sys
 import os
 # local-packages imports
@@ -120,12 +121,17 @@ def load_arduino_cli(sketch_path):
             exit_code = 0
         else:
             # Launch the Arduino CLI in a subprocess and capture output data
+            print('Launch Arduino CLI:')
             process = subprocess.Popen(
                 cli_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                 shell=False)
             std_out, err_out = process.communicate()
-            std_out = six.u(std_out)
-            err_out = six.u(err_out)
+            if (platform.system() == "Windows"):                
+                std_out = std_out.decode("cp1250")
+                err_out = err_out.decode("cp1250")
+            else:
+                std_out = six.u(std_out)
+                err_out = six.u(err_out)
             exit_code = process.returncode
             print('Arduino output:\n%s' % std_out)
             print('Arduino Error output:\n%s' % err_out)

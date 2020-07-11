@@ -1,0 +1,1352 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="Do/JsnCXKE~{abxuF:::" x="-85" y="-71">
+    <statement name="SETUP_FUNC">
+      <block type="auto_lcd_display" id="c]vST#QD6h=i+S]9QcO1">
+        <value name="POSX">
+          <block type="math_number" id="9R@D+;rXbwLi`E)]jg76">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="+98^.R!_7}:Xd%22iXX4">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text" id="*y1Fqu=@_?60e;HW=Ko*">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="p]`Jc{[D9F=MhURw5?%Y">
+            <field name="VAR">k</field>
+            <value name="VALUE">
+              <block type="math_number" id=")iu~WdeH4*Rl}t3e%v=g">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="2HVw_eh?zd1EEG7kM4O~">
+                <field name="VAR">x</field>
+                <value name="VALUE">
+                  <block type="math_number" id="%c:tb,LE-ONE3{V+#W[2">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="94J:Vikn`;0CFOedZcfh">
+                    <field name="VAR">tekst</field>
+                    <value name="VALUE">
+                      <block type="text" id="PED|mD(+Z|r=EKp!3ny/">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="0Cy^lf}].Q#5TEp3d98r">
+                        <field name="VAR">skręt</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="^J7j);:T5~+o(!As@o#s">
+                            <field name="NUM">150</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="=DQd4tWZ-=10kB|:5!Ig">
+                            <field name="VAR">prędkość</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="!fQ!NqPdfM!aY}^aRq{]">
+                                <field name="NUM">200</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="3a-ywu,@dhkkXw@JW0R#">
+                                <field name="VAR">kierunek</field>
+                                <value name="VALUE">
+                                  <block type="math_number" id="z2fSG3Q|/}@Wi;%?33Fg">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="@X^WHP{ba2eak1E:jJf|">
+                                    <field name="VAR">odległość</field>
+                                    <value name="VALUE">
+                                      <block type="math_number" id="M:A1#AuxF{Pl%ikS0V~,">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="auto_bt_command" id="ViIUBPn}wUk|w[eHk5:5">
+        <value name="CMD">
+          <block type="text" id="N~YI?SH.PICQ[YII!R@@">
+            <field name="TEXT">F</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="procedures_callnoreturn" id="et*Ey0#x3x[+9{_Cv2~d">
+            <mutation name="do_przodu"></mutation>
+          </block>
+        </statement>
+        <next>
+          <block type="auto_bt_command" id="4hYkBbw^[l?*OxTmE4v~">
+            <value name="CMD">
+              <block type="text" id="[]Ot.,GUQ-c}0@G}O.h3">
+                <field name="TEXT">B</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="procedures_callnoreturn" id="l0_=fvBitN2``hBo6CPI">
+                <mutation name="do_tyłu"></mutation>
+              </block>
+            </statement>
+            <next>
+              <block type="auto_bt_command" id="J0lS;SGPBYmyEUIm.)/)">
+                <value name="CMD">
+                  <block type="text" id=".6BRMwt-o-[u4Hx0hsw(">
+                    <field name="TEXT">T</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="procedures_callnoreturn" id="7n3XGO5bBluwN;WZyzK@">
+                    <mutation name="dalej"></mutation>
+                  </block>
+                </statement>
+                <next>
+                  <block type="auto_bt_command" id="vX~h%B*zGQcZ!ek:L`vL">
+                    <value name="CMD">
+                      <block type="text" id="kg|;8GYWzI|;toW`m;3k">
+                        <field name="TEXT">L1</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="procedures_callnoreturn" id="ZU{2:v;/_uyW-@[@;yWW">
+                        <mutation name="w_lewo">
+                          <arg name="x"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="math_number" id="1,MDiW.0Sd9EcytkitA|">
+                            <field name="NUM">30</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="auto_bt_command" id="TRWon(Cs.3x#{|%|_L!D">
+                        <value name="CMD">
+                          <block type="text" id="G)5]H!UDub9t@{qcNG6S">
+                            <field name="TEXT">L2</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="procedures_callnoreturn" id="G:p!1*NhEA^]DYBY#WPx">
+                            <mutation name="w_lewo">
+                              <arg name="x"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="math_number" id="vb#?)zc]|_M^W^Ken=[#">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="auto_bt_command" id=".03!XM+X/{K)s%-}Ql*!">
+                            <value name="CMD">
+                              <block type="text" id="eO|=6sxY9AZAdZ/v*B69">
+                                <field name="TEXT">R1</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="procedures_callnoreturn" id="w_vH06%Oh;6hTUieaLJ6">
+                                <mutation name="w_prawo">
+                                  <arg name="x"></arg>
+                                </mutation>
+                                <value name="ARG0">
+                                  <block type="math_number" id="pT]I,0!S_N,c4d)?1YP%">
+                                    <field name="NUM">30</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="auto_bt_command" id="MDeg4?YapqC=:g@4y@kj">
+                                <value name="CMD">
+                                  <block type="text" id="I4J8Fk9)e:PK:-s-+Pw!">
+                                    <field name="TEXT">R2</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="procedures_callnoreturn" id="0}6MWs0LL4!O6P.;DNYg">
+                                    <mutation name="w_prawo">
+                                      <arg name="x"></arg>
+                                    </mutation>
+                                    <value name="ARG0">
+                                      <block type="math_number" id="meftNBFN/QwD=FwK`FY%">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="auto_bt_command" id="o]3ej-5-G]UU|DH63O6U">
+                                    <value name="CMD">
+                                      <block type="text" id=":%@d},}95_+3lon(R!z?">
+                                        <field name="TEXT">S</field>
+                                      </block>
+                                    </value>
+                                    <statement name="DO">
+                                      <block type="procedures_callnoreturn" id=";x{J^52(!V=~A!su:k5%">
+                                        <mutation name="stop"></mutation>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="auto_bt_command" id="qE7;0,dNpZWjNEOgQRsi">
+                                        <value name="CMD">
+                                          <block type="text" id="@8-5)L^Ls:J3bXT1za/B">
+                                            <field name="TEXT">U</field>
+                                          </block>
+                                        </value>
+                                        <statement name="DO">
+                                          <block type="procedures_callnoreturn" id="D?9bW(PXO[CNxOf!*9=G">
+                                            <mutation name="przyspiesz"></mutation>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="auto_bt_command" id="5A4hQlh,X9U5x(4)a6C7">
+                                            <value name="CMD">
+                                              <block type="text" id="3e/ogyLt00J*RFEsLG9N">
+                                                <field name="TEXT">D</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="procedures_callnoreturn" id="0-V2`;9x]-=E-(fSyFko">
+                                                <mutation name="zwolnij"></mutation>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="auto_bt_command" id="LbS4xv,jLbQ17r073_0d">
+                                                <value name="CMD">
+                                                  <block type="text" id="QR-|J(JE#zjFT4Qd%odR">
+                                                    <field name="TEXT">C</field>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO">
+                                                  <block type="procedures_callnoreturn" id="!uu#brJaqq~*gy*2MiWu">
+                                                    <mutation name="stop"></mutation>
+                                                    <next>
+                                                      <block type="procedures_callnoreturn" id="GX#Iuev*M(9]5]dEI?O%">
+                                                        <mutation name="wyślij_prędkość"></mutation>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="controls_if" id="8l=rXQT`5LMYrxb|_h/7">
+                                                    <value name="IF0">
+                                                      <block type="logic_operation" id="OF90^1|[t:Mp_YMe6fRb">
+                                                        <field name="OP">AND</field>
+                                                        <value name="A">
+                                                          <block type="logic_compare" id="NEf/Z`,^d3eyRiSURqlg">
+                                                            <field name="OP">LTE</field>
+                                                            <value name="A">
+                                                              <block type="variables_get" id="ks[COgv5)v2r~}79LrHG">
+                                                                <field name="VAR">odległość</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="math_number" id="@mh)_DUUs}6UeB6N`o2{">
+                                                                <field name="NUM">20</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="logic_compare" id="OLZE^ux{oYsC`x#58UNI">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="variables_get" id="8:g^f84d#vd6]aEt|rn1">
+                                                                <field name="VAR">kierunek</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="math_number" id="K#cOgQAY)F@0+,2V5)E0">
+                                                                <field name="NUM">1</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO0">
+                                                      <block type="procedures_callnoreturn" id="31L5Ty]Bx5V-h;lh[1u[">
+                                                        <mutation name="sygnał"></mutation>
+                                                        <next>
+                                                          <block type="procedures_callnoreturn" id="1lRx4enP]tC^8n}zY|g5">
+                                                            <mutation name="do_tyłu"></mutation>
+                                                            <next>
+                                                              <block type="auto_timer_once" id="Oi(bDze~4MH+eLUySv6J">
+                                                                <value name="TIME">
+                                                                  <block type="math_number" id="(@@58j@c8:Anf~1{NdmP">
+                                                                    <field name="NUM">300</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO">
+                                                                  <block type="procedures_callnoreturn" id="r2B;^ow3PZJ_^*U~^dc7">
+                                                                    <mutation name="stop"></mutation>
+                                                                  </block>
+                                                                </statement>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="{iqZ;LjUI0HE)~2mX=dD" x="364" y="-64">
+    <mutation>
+      <arg name="tekst"></arg>
+    </mutation>
+    <field name="NAME">wyświetl</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_lcd_display" id="avpOa=kUN,,Wo=6NN{}9">
+        <value name="POSX">
+          <block type="math_number" id="E.Sf*-W(~4DyFkK`eMMi">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="]}%Dy!O1l}w|Reg8Y`=6">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text_join" id="A)]*aFNR{S^omx6J33%N">
+            <mutation items="5"></mutation>
+            <value name="ADD0">
+              <block type="text" id="?kL((y!~iJiN6n)Wh+;@">
+                <field name="TEXT">CMD: </field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="variables_get" id="qL0MFXv[YEJ09(Quzh`P">
+                <field name="VAR">tekst</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="*NwN~Y=87P!FkZt}iX3Y">
+                <field name="TEXT"> SPD: </field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="variables_get" id=".t!EweSyjq)#G#p?e%R3">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <value name="ADD4">
+              <block type="text" id="FWB783Ii-MI1DB:5Mi6[">
+                <field name="TEXT">   </field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="2+S#6|z-FNPK|Wu4@ZHz" x="992" y="-58">
+    <field name="NAME">wyłącz_światła</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_led" id="pFL:`2D+r!vE6PuaJVo.">
+        <field name="LED">ledB</field>
+        <field name="VALUE">0</field>
+        <next>
+          <block type="auto_led" id=",l5plNWFFd20Xn/{%0!B">
+            <field name="LED">ledF</field>
+            <field name="VALUE">0</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="dR0djkN0]F=x%V~#Erwt" x="1317" y="-62">
+    <field name="NAME">dalej</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="|ExAgfb[s3,nKEI:c#8%">
+        <mutation elseif="2"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="rt/3wz=4.?)=bOUqc1eg">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="`}Gga(UC[1MRE,{Wk*vQ">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="}D[+#Y]bBdF:ah6/ey7k">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="procedures_callnoreturn" id="dKgqL?[qI)1=z|AK16]M">
+            <mutation name="do_przodu"></mutation>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="+fcpYNs,uFbVQZtTAUH@">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="T2?Ws-GJf+04Wug_KYsk">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="P8k:3bJj5=`Nv5iklH8%">
+                <field name="NUM">-1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="procedures_callnoreturn" id="7qstH!F^;V/V]K!T8d*K">
+            <mutation name="do_tyłu"></mutation>
+          </block>
+        </statement>
+        <value name="IF2">
+          <block type="logic_compare" id="p_PQR|#Jc[4z!Y]J(VQw">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="e8,G_EhR*i#Uf*xoj-Q.">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="35*k[8}E`Q:5VbUB1u@b">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO2">
+          <block type="procedures_callnoreturn" id="~zLOv|KP04@Ax@:mLo({">
+            <mutation name="stop"></mutation>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="~6I(m9})4ucEQcPz(kW)" x="991" y="56">
+    <field name="NAME">stop</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="H`b:y:MszZ~)}uj:K*Q~">
+        <field name="VAR">kierunek</field>
+        <value name="VALUE">
+          <block type="math_number" id="Wl]]U{I-f8_w]ahFNS,:">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="auto_motor_stop" id="Mtq4}}`LSzi1ib43]#q|">
+            <field name="MOTOR">motorALL</field>
+            <next>
+              <block type="procedures_callnoreturn" id="gZyy_ge^q38Z2:Qrnd4S">
+                <mutation name="wyłącz_światła"></mutation>
+                <next>
+                  <block type="procedures_callnoreturn" id="@-tn#Lz;S@UWMEoOp{:N">
+                    <mutation name="wyświetl">
+                      <arg name="tekst"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="text" id="TdQ%GIrF-kV/Oo(13=v1">
+                        <field name="TEXT">S</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="bSk{0TOa*n+d`xUBmHoG" x="364" y="142">
+    <field name="NAME">do_przodu</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id=")i2@ByT@Nu/qr?i:0ba1">
+        <field name="VAR">kierunek</field>
+        <value name="VALUE">
+          <block type="math_number" id="|srWF)5LvGA.P2LtVZ,;">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="auto_motor" id="IxtT6_=Ld9;M=BP;?D|a">
+            <field name="MOTOR">motorALL</field>
+            <field name="FUNCTION">forward</field>
+            <value name="SPEED">
+              <block type="variables_get" id=":!q#kkZD?TWPveSxU8?N">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="TLA,sj_2gE@lwr2J(!3q">
+                <mutation name="wyłącz_światła"></mutation>
+                <next>
+                  <block type="auto_led" id="|iJgcn2(2Tvqft3+X!nM">
+                    <field name="LED">ledF</field>
+                    <field name="VALUE">1</field>
+                    <next>
+                      <block type="procedures_callnoreturn" id="r~*h#g}7H,?g38oyH@/D">
+                        <mutation name="wyświetl">
+                          <arg name="tekst"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="text" id="fG,c_JMly!2Nii_jU{E0">
+                            <field name="TEXT">F</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="v)RPj4q]oCSjH)xaX++y" x="996" y="262">
+    <mutation>
+      <arg name="x"></arg>
+      <arg name="k"></arg>
+    </mutation>
+    <field name="NAME">ustal_prędkość</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="V64#_y)Qrcf2+rl)=CCS">
+        <mutation elseif="1" else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="z4fskZraOJA]rpIK,3`/">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="p?4W]Zy29#P|v=ww/ZgF">
+                <field name="VAR">k</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="V/N/Ela?VaR+-m,#2X;c">
+                <field name="NUM">-1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set" id="dR;pXCYrHfCLob%k}hv#">
+            <field name="VAR">x</field>
+            <value name="VALUE">
+              <block type="variables_set_type" id="|.W.pD-^_X]3mR|JDiLI">
+                <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                <value name="VARIABLE_SETTYPE_INPUT">
+                  <block type="math_round" id="#Tw5V}BnN%|`(cBB:Pjo">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <block type="math_arithmetic" id="wkB|M)=!1`;9|;}kYWns">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="math_arithmetic" id="!maS`U^:Q9pBwHn~{epM">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="math_number" id="/^A;TGmWS^8muy`!aR9}">
+                                <field name="NUM">0.25</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_set_type" id="dxQYZ3tZ!=gHKfH?/ouT">
+                                <field name="VARIABLE_SETTYPE_TYPE">DECIMAL</field>
+                                <value name="VARIABLE_SETTYPE_INPUT">
+                                  <block type="variables_get" id="oh{yzwtMF,gq_V1/T2eV">
+                                    <field name="VAR">x</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="qW0HISZ]}4;6rF)HYHa8">
+                            <field name="NUM">30</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="rN3Cw0tDGFR0st*(;EdT">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="g9~-^orNDz7BG3p]}ylh">
+                <field name="VAR">k</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="Ny9}WNRU5sm,yAKV:iej">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="variables_set" id="@J%TQFY7=bXF7VoQbRU=">
+            <field name="VAR">x</field>
+            <value name="VALUE">
+              <block type="variables_set_type" id="Y,e;RQ?q#/l([q80Pqzb">
+                <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                <value name="VARIABLE_SETTYPE_INPUT">
+                  <block type="math_round" id="xj[{bdNsF:K3T`5nc~8W">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <block type="math_arithmetic" id="Xr~ZggNe~,*yVv_fg1-e">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="math_arithmetic" id="Ta:G5`XoPmy`ks2m^QQz">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="math_number" id="F=_b)JNc0Jw)*G?,Ob*F">
+                                <field name="NUM">0.335</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_set_type" id="yfsN+0x=YD:arcnN*_Vl">
+                                <field name="VARIABLE_SETTYPE_TYPE">DECIMAL</field>
+                                <value name="VARIABLE_SETTYPE_INPUT">
+                                  <block type="variables_get" id="AE~q/fe}0;woBM1996yV">
+                                    <field name="VAR">x</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="]/T~]yg)n37jlbrb,2.G">
+                            <field name="NUM">72</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="variables_set" id="JEhn:q@9}T40{!dcPF]9">
+            <field name="VAR">x</field>
+            <value name="VALUE">
+              <block type="variables_get" id="N.OMxg^/mm/=VBj^io2[">
+                <field name="VAR">skręt</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="}d_f9QTq~IKj!yR.hi4#">
+            <value name="IF0">
+              <block type="logic_compare" id="Q*dDR:xRwGT%l3}`IYRl">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="variables_get" id="W_i/Ajc-dm]ip!200;(b">
+                    <field name="VAR">x</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="s+^4#@90:BmQ/RAuHG?e">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="E0;ulzP.p7sU;j@EY|L#">
+                <field name="VAR">x</field>
+                <value name="VALUE">
+                  <block type="math_number" id="V+?}KdX3z#Cv_K09JJ=R">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_if" id="S=~I#P_9}/D2znL;B};m">
+                <value name="IF0">
+                  <block type="logic_compare" id="=#Eho!vAHeGJzbR:oX94">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="variables_get" id="DsgOPd}Rgk#ZCdCZUnYN">
+                        <field name="VAR">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="variables_get" id="6oxG0i9.~(rbJW_NTnMn">
+                        <field name="VAR">skręt</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set" id="BrRJL9x1y0J0K%eh6^*i">
+                    <field name="VAR">x</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="?v!)Rv|_QX%!@:F{;w*;">
+                        <field name="VAR">skręt</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_set_type" id="C`pL++]xWoX,k,CgC(P!">
+        <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+        <value name="VARIABLE_SETTYPE_INPUT">
+          <block type="variables_get" id="B*6RuH.UtvMdrKe/hI8t">
+            <field name="VAR">x</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="IlS-7Y~31ahF2y{iQ2Jg" x="364" y="380">
+    <field name="NAME">do_tyłu</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id=",]Ww[#90-je_A%Ni^gE+">
+        <field name="VAR">kierunek</field>
+        <value name="VALUE">
+          <block type="math_number" id="LRpa*qdqZ^k/XA7BV8h=">
+            <field name="NUM">-1</field>
+          </block>
+        </value>
+        <next>
+          <block type="auto_motor" id="#)IETabA6hi|9?^%!_gE">
+            <field name="MOTOR">motorALL</field>
+            <field name="FUNCTION">backward</field>
+            <value name="SPEED">
+              <block type="variables_get" id="m,Iba*V:DzoECe-6/=5H">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="[1sPeS/[RT1xHajtQo@W">
+                <mutation name="wyłącz_światła"></mutation>
+                <next>
+                  <block type="auto_led" id="D|!V9Vh{(dxP+JsTkVSG">
+                    <field name="LED">ledB</field>
+                    <field name="VALUE">1</field>
+                    <next>
+                      <block type="procedures_callnoreturn" id="BMlmk;8#6_iNKoo0Y^n@">
+                        <mutation name="wyświetl">
+                          <arg name="tekst"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="text" id=",(s;^EAVd}TBLIelO?}Q">
+                            <field name="TEXT">B</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="@qa|pR~{6SJo(Is(nx;#" x="370" y="617">
+    <value name="TIME">
+      <block type="math_number" id="qGKAZk%*uv4;MnX.1Q6G">
+        <field name="NUM">100</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="variables_set" id=";_=_;d=n34pmU?1eC77{">
+        <field name="VAR">odległość</field>
+        <value name="VALUE">
+          <block type="auto_ultrasonic" id="RKO3B1Jn|v)RgA~NZxnN">
+            <field name="UNIT">cm</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="auto_timer_cyclic" id="f-xNl%lA-z:FaY:0pcXO" x="370" y="725">
+    <value name="TIME">
+      <block type="math_number" id="ZJ^4/Xj6Ej9y8`Voo9)T">
+        <field name="NUM">1000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="auto_led" id="%d1!U6l,C6E{Ea8L^4v|">
+        <field name="LED">ledT</field>
+        <field name="VALUE">1</field>
+        <next>
+          <block type="auto_timer_once" id="]CIay3?qo!L^oq=;:Uu_">
+            <value name="TIME">
+              <block type="math_number" id="^#.Ku*)`3h93me1+r{_8">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_led" id="Bfh5^:ZiHBeOPqE8S|*;">
+                <field name="LED">ledT</field>
+                <field name="VALUE">0</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="q}i)kk(bL`}YUbF?(1Mb" x="995" y="782">
+    <mutation>
+      <arg name="x"></arg>
+    </mutation>
+    <field name="NAME">w_prawo</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="Z}ent_yP?am94}G3G;us">
+        <mutation elseif="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="87~J1p[qZAP[hsqRr!1s">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="+smm[Y+6c5+Dprh,*oDQ">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="`C[agY=Xa)/cp_Y#6@|K">
+                <field name="NUM">-1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="auto_motor" id="Bwml?n1C@ROWJg7^z9IM">
+            <field name="MOTOR">motorL</field>
+            <field name="FUNCTION">backward</field>
+            <value name="SPEED">
+              <block type="variables_get" id="Kl,P!;;O+t0UeAL~gf|W">
+                <field name="VAR">skręt</field>
+              </block>
+            </value>
+            <next>
+              <block type="auto_motor" id="gL#rHROL8)gi28]Nrp[9">
+                <field name="MOTOR">motorR</field>
+                <field name="FUNCTION">backward</field>
+                <value name="SPEED">
+                  <block type="procedures_callreturn" id="9f*3eE|[~b[auJae@#xm">
+                    <mutation name="ustal_prędkość">
+                      <arg name="x"></arg>
+                      <arg name="k"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get" id="9D)7xNXQ6H1_jPWuuQGK">
+                        <field name="VAR">x</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_number" id="]^Js}B-bz;;_1HJaYA*k">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="9RZOh_~t!qYry}lM)7Uc">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="QMQ(6-z1SF)`/2ct^:4`">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id=";HNCi#8fWP|Qz:qyL.C#">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="auto_motor" id="d.9JxleT!uiR0q4Mp|-`">
+            <field name="MOTOR">motorL</field>
+            <field name="FUNCTION">forward</field>
+            <value name="SPEED">
+              <block type="variables_get" id="k?p.R:jRKR@M.ed6|!/T">
+                <field name="VAR">skręt</field>
+              </block>
+            </value>
+            <next>
+              <block type="auto_motor" id="/!=8QvfU~=8[6!Y;ka2k">
+                <field name="MOTOR">motorR</field>
+                <field name="FUNCTION">forward</field>
+                <value name="SPEED">
+                  <block type="procedures_callreturn" id="wAsuh|~C}t]?N:sL*e)=">
+                    <mutation name="ustal_prędkość">
+                      <arg name="x"></arg>
+                      <arg name="k"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get" id="LEqu{Sb#h0!(`n2JBOq{">
+                        <field name="VAR">x</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_number" id="5gS7F0WjqNzq{[zkb)qp">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="CEI(NLGj(|JQV9^!09yc">
+            <value name="IF0">
+              <block type="logic_compare" id="?;a9eLD6/w@1pLi,!Hhc">
+                <field name="OP">NEQ</field>
+                <value name="A">
+                  <block type="variables_get" id="ARwu6^qUx.=ns8FNuH6j">
+                    <field name="VAR">kierunek</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="u;#^Mp^9YyF{bmoAav7{">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="procedures_callnoreturn" id="wDMA?;SQQesTU8.qIj+_">
+                <mutation name="wyłącz_światła"></mutation>
+                <next>
+                  <block type="auto_led" id="hXs+`H%!c7Zi6A`Jj3R.">
+                    <field name="LED">ledR</field>
+                    <field name="VALUE">1</field>
+                    <next>
+                      <block type="procedures_callnoreturn" id="znq;G2{o#7!R6+Oa?4z7">
+                        <mutation name="wyświetl">
+                          <arg name="tekst"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="text" id="9sgVA8Ryjz,7TR/6?s(W">
+                            <field name="TEXT">R</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="}Sq!Of^S%V#~yh7H07Y7" x="370" y="925">
+    <field name="NAME">wyślij_prędkość</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_bt_message" id="k`2-8qzE;e9BTu4QHKWQ">
+        <value name="CMD">
+          <block type="text_join" id="[fRkQ}`PmbWz9TAZi_c3">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="text" id="y7-*N@Xy^TEQ0L}p;,[K">
+                <field name="TEXT">.V</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="variables_get" id=")k#D{UzuUEFVBKoDE;}:">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="uo)y_H6[jjmko:*B;H9;">
+                <field name="TEXT">.</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="pbTu@Uc.k[zELir7ZbOX" x="366" y="1291">
+    <field name="NAME">zwolnij</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id=")sY-t}Is2N`B:17DVWwN">
+        <field name="VAR">prędkość</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="#NeNK.ZBL~pk{0YRw[^a">
+            <field name="OP">MINUS</field>
+            <value name="A">
+              <block type="variables_get" id="|hCQLCX9QQhyr9}tgSpX">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="R+p~;/sl`)SA[ia+or=X">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="G~Z[[t]_EWUC@:?Xu}+R">
+            <value name="IF0">
+              <block type="logic_compare" id="/KciM,t8x7q_f30n3{Bh">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="variables_get" id="X]:+@d2ZZ`ZWDc1KpmKh">
+                    <field name="VAR">prędkość</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="Rpz6/X:O9?niuW6;7;x@">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="ubEIVT8bjnzs/IPgBoeU">
+                <field name="VAR">prędkość</field>
+                <value name="VALUE">
+                  <block type="math_number" id="+%k0,_zf=AR14yfT+UsF">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="procedures_callnoreturn" id="1S?EH8=;Vu]i:CT^?M57">
+                <mutation name="wyślij_prędkość"></mutation>
+                <next>
+                  <block type="procedures_callnoreturn" id="ePo840Hq2nbZ`3HMb4TR">
+                    <mutation name="dalej"></mutation>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="L8~)ba8nU?SvMf:DGB*y" x="-77" y="1391">
+    <field name="NAME">sygnał</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="auto_buzzer" id="V.71KA)ZU3E!nRvZ#Fy-">
+        <field name="VALUE">LOW</field>
+        <next>
+          <block type="auto_timer_once" id="DqlNdi^m5Gs%L+xE+Ss_">
+            <value name="TIME">
+              <block type="math_number" id="`,(1(1w^8TQWW{%`K.el">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="auto_buzzer" id="?[=-L:UF=jlHWGIB[#J/">
+                <field name="VALUE">HIGH</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="{u1P)927bHUfdX?=:3%p" x="992" y="1353">
+    <mutation>
+      <arg name="x"></arg>
+    </mutation>
+    <field name="NAME">w_lewo</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="HT`|X{7WV0x#?`QQrgi0">
+        <mutation elseif="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="IfVfsP,a=tqB/3*6q=lO">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="Rl,WU:{c],lO=Sl/0X/(">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="7tZCSc?bc7!]Ji;R3)-.">
+                <field name="NUM">-1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="auto_motor" id="uBrj=7i4e1Mk~|-QC/sZ">
+            <field name="MOTOR">motorR</field>
+            <field name="FUNCTION">backward</field>
+            <value name="SPEED">
+              <block type="variables_get" id="o!m`h3N[6!!Z=PvOtA4J">
+                <field name="VAR">skręt</field>
+              </block>
+            </value>
+            <next>
+              <block type="auto_motor" id="/DM1F?FR_#Qo**tTBhtJ">
+                <field name="MOTOR">motorL</field>
+                <field name="FUNCTION">backward</field>
+                <value name="SPEED">
+                  <block type="procedures_callreturn" id="s`CQ60RxRe%paFlqEt~o">
+                    <mutation name="ustal_prędkość">
+                      <arg name="x"></arg>
+                      <arg name="k"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get" id="a`8P~}z[y^%B19;S~wYY">
+                        <field name="VAR">x</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_number" id="t,+H|Ka{BU+q+3.`ACtk">
+                        <field name="NUM">-1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="8gct3x[=]*mzO~R7|y]g">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="(;*qC4RC1ms`o4]A3s*b">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="+qh31`:^}O*t)cA}(Dw0">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="auto_motor" id="Xui8lz+9QSV8=jq}J@O/">
+            <field name="MOTOR">motorR</field>
+            <field name="FUNCTION">forward</field>
+            <value name="SPEED">
+              <block type="variables_get" id="Oz2%:YzHYcS+,~Me=vgN">
+                <field name="VAR">skręt</field>
+              </block>
+            </value>
+            <next>
+              <block type="auto_motor" id="V`IK*0AaEaO-J`=VdhLH">
+                <field name="MOTOR">motorL</field>
+                <field name="FUNCTION">forward</field>
+                <value name="SPEED">
+                  <block type="procedures_callreturn" id="LU^DJXqmY9;=3rv}58c?">
+                    <mutation name="ustal_prędkość">
+                      <arg name="x"></arg>
+                      <arg name="k"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get" id="4OL}M)t?zpV23g^V5P`H">
+                        <field name="VAR">x</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_number" id="1ZJdBYE:cRGyiu_P+.Wh">
+                        <field name="NUM">-1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="[tir,ln3m2G6o4]=]L.6">
+            <value name="IF0">
+              <block type="logic_compare" id="C7__jc01w{V#Tft^MUIJ">
+                <field name="OP">NEQ</field>
+                <value name="A">
+                  <block type="variables_get" id="3A=v!7,qVJg@.2uJ-.Oe">
+                    <field name="VAR">kierunek</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="tT#Gw7/_UBnb!P(IddNx">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="procedures_callnoreturn" id="jl(0JCK2tX!wGb(NQuST">
+                <mutation name="wyłącz_światła"></mutation>
+                <next>
+                  <block type="auto_led" id="@t`:|Kw=v]{mZ!T,pS{5">
+                    <field name="LED">ledL</field>
+                    <field name="VALUE">1</field>
+                    <next>
+                      <block type="procedures_callnoreturn" id="sgqS~/)o4Nf5SL8HPg0;">
+                        <mutation name="wyświetl">
+                          <arg name="tekst"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="text" id=")Xn_1;.xTus8dF9?.9Cu">
+                            <field name="TEXT">L</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="osgoQ@brWzq;qg,M*tf)" x="366" y="1536">
+    <field name="NAME">przyspiesz</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="WB0Q(nMQz,to:Cgo7k]o">
+        <field name="VAR">prędkość</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="P~N~O439#OFp%5Mzk^%5">
+            <field name="OP">ADD</field>
+            <value name="A">
+              <block type="variables_get" id="rE4DX(OIheR+-ifw:.93">
+                <field name="VAR">prędkość</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="T0o)_37[4+]?*41{mBG.">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="rY9w#IB#{c2v2]_D566r">
+            <value name="IF0">
+              <block type="logic_compare" id="LBPdI,kNjsmpemgY%/We">
+                <field name="OP">GT</field>
+                <value name="A">
+                  <block type="variables_get" id="86tDsdn@g,R.J]KCVpS8">
+                    <field name="VAR">prędkość</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="54kDqcIZR*]gPVo!%!J[">
+                    <field name="NUM">255</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="kkm9EN(:)WNx3.TF6Jn_">
+                <field name="VAR">prędkość</field>
+                <value name="VALUE">
+                  <block type="math_number" id="sa0`;]VWz=k)BRKkOOVA">
+                    <field name="NUM">255</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="procedures_callnoreturn" id="%?|zN/62d*cNmld^fam;">
+                <mutation name="wyślij_prędkość"></mutation>
+                <next>
+                  <block type="procedures_callnoreturn" id="ii4Ch.P3km-G%uqQEz7z">
+                    <mutation name="dalej"></mutation>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
