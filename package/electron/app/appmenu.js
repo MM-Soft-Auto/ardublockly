@@ -221,44 +221,52 @@ var getExamplesMenuData = function() {
         label: 'Examples',
         submenu: [
             {
-                label: 'Blinky',
+                label: 'Auto Bluetooth',
                 click: function() {
                      BrowserWindow.getFocusedWindow().webContents
                         .executeJavaScript(
                             'Ardublockly.loadServerXmlFile("../examples/' +
-                            'blink.xml");');
+                            'Auto_Bluetooth.xml");');
                 }
             }, {
-                label: 'Serial Print',
+                label: 'Auto Sterowanie',
                 click: function() {
                      BrowserWindow.getFocusedWindow().webContents
                         .executeJavaScript(
                             'Ardublockly.loadServerXmlFile("../examples/' +
-                            'serial_print_ascii.xml");');
+                            'Auto_Sterowanie.xml");');
                 }
             }, {
-                label: 'Serial Repeat Game',
+                label: 'Auto Światła',
                 click: function() {
                      BrowserWindow.getFocusedWindow().webContents
                         .executeJavaScript(
                             'Ardublockly.loadServerXmlFile("../examples/' +
-                            'serial_repeat_game.xml");');
+                            'Auto_Światła.xml");');
                 }
             }, {
-                label: 'Servo Knob',
+                label: 'Auto Dźwięk',
                 click: function() {
                      BrowserWindow.getFocusedWindow().webContents
                         .executeJavaScript(
                             'Ardublockly.loadServerXmlFile("../examples/' +
-                            'servo_knob.xml");');
+                            'Auto_Dźwięk.xml");');
                 }
             }, {
-                label: 'Stepper Knob',
+                label: 'Auto Sensor',
                 click: function() {
                      BrowserWindow.getFocusedWindow().webContents
                         .executeJavaScript(
                             'Ardublockly.loadServerXmlFile("../examples/' +
-                            'stepper_knob.xml");');
+                            'Auto_Sensor.xml");');
+                }
+            }, {
+                label: 'Auto Napęd',
+                click: function() {
+                     BrowserWindow.getFocusedWindow().webContents
+                        .executeJavaScript(
+                            'Ardublockly.loadServerXmlFile("../examples/' +
+                            'Auto_Napęd.xml");');
                 }
             }
         ]
