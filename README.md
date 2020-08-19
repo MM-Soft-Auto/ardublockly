@@ -81,6 +81,15 @@ To download the documentation you can git clone the wiki data:
 git clone https://github.com/carlosperate/ardublockly.wiki.git
 ```
 
+## Extensions
+
+To extend current Arduino-Auto programming system it is possible to define new blocks in Auto toolbox. To do this you have to extend/modify the folowing elements:
+
+1. Define new Blockly block in blockly\blocks\auto.js
+2. Define code generator for your new block in blockly\generators\arduino\auto.js
+3. Add new block to Auto toolbox defined in ardublockly_toolbox.js
+4. Rebuild the project and create new installer (if needed) 
+
 ## Credit
 
 This project has been inspired by [Ardublockly][0].
