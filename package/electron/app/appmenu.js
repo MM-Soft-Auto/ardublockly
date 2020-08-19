@@ -330,41 +330,16 @@ var getHelpMenuData = function() {
         label: 'Help',
         submenu: [
             {
-                label: 'Quick Start',
-                click: function() {
-                    shell.openExternal(
-                        'http://localhost:8000/docs/Quick-Start');
-                }
-            }, {
-                label: 'Manual',
-                click: function() {
-                    shell.openExternal('http://localhost:8000/docs/');
-                }
-            }, {
-                type: 'separator'
-            }, {
-                label: 'Website',
-                click: function() {
-                    shell.openExternal('http://ardublockly.embeddedlog.com');
-                }
-            }, {
                 label: 'Source code',
                 click: function() {
                     shell.openExternal(
-                        'https://github.com/carlosperate/ardublockly');
+                        'https://github.com/MM-Soft-Auto');
                 }
             }, {
                 label: 'Report a bug',
                 click: function() {
                     shell.openExternal(
-                        'https://github.com/carlosperate/ardublockly/issues');
-                }
-            }, {
-                type: 'separator'
-            },  {
-                label: 'About',
-                click: function() {
-                    shell.openExternal('http://localhost:8000/docs/About');
+                        'https://github.com/MM-Soft-Auto/issues');
                 }
             }
         ]
