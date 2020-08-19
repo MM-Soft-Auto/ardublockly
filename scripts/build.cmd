@@ -1,14 +1,16 @@
 @echo off
 
-cd ../blockly
-python ./build.py
 cd ..
 
-python3 ./package/build_pyinstaller.py
+cd .\blockly
+c:\python27\python .\build.py
+cd ..
 
-cd ./package/electron
+python3 .\package\build_pyinstaller.py
+
+cd .\package\electron
 call npm install
 call npm run release
-cd ../../
+cd ..\..\
 
-python ./package/pack_ardublockly.py
+python .\package\pack_ardublockly.py
