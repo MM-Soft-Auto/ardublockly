@@ -83,11 +83,62 @@ git clone https://github.com/carlosperate/ardublockly.wiki.git
 
 ## Extensions
 
-To extend current Arduino-Auto programming system it is possible to define new blocks in Auto toolbox. To do this you have to extend/modify the folowing elements:
+To extend current Arduino-Auto programming system it is possible to define new blocks in Auto toolbox. To do this you have to extend/modify the folowing elements (i.e. like for auto_buzzer block):
 
 1. Define new Blockly block in blockly\blocks\auto.js
+```js
+var AUTO_ctrlBlock_HUE = 100;
+
+Blockly.Blocks['auto_buzzer'] = {
+    init: function() {
+        this.jsonInit({
+            "type": "auto_buzzer",
+            "message0": Blockly.Msg.AUTO_BUZZER_MESSAGE,
+            "args0": [{
+                "type": "field_dropdown",
+                "name": "VALUE",
+                "options": [
+                    [Blockly.Msg.AUTO_BUZZER_ON, "LOW"],
+                    [Blockly.Msg.AUTO_BUZZER_OFF, "HIGH"]
+                ]
+            }],
+            "inputsInline": true,
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": AUTO_ctrlBlock_HUE,
+            "tooltip": Blockly.Msg.AUTO_BUZZER_TIP,
+            "helpUrl": "https://www.thingiverse.com/thing:2662828"
+        });
+    }
+};
+```
+Note: You have to define required text constants (Blockly.Msg.xxx) in blockly\msg\json\pl.json (for polish language)
+```json
+{
+    "AUTO_BUZZER_MESSAGE": "Sygnał dźwiękowy %1",
+    "AUTO_BUZZER_ON": "Włącz",
+    "AUTO_BUZZER_OFF": "Wyłącz",
+    "AUTO_BUZZER_TIP": "Generator sygnału dźwiękowego",
+}
+```
 2. Define code generator for your new block in blockly\generators\arduino\auto.js
-3. Add new block to Auto toolbox defined in ardublockly_toolbox.js
+```js
+var AUTO_buzzer_PIN = 2;
+
+Blockly.Arduino['auto_buzzer'] = function(block) {
+    var dropdown_value = this.getFieldValue('VALUE');
+    Blockly.Arduino.setups_['setup_buzzer_1' + AUTO_buzzer_PIN] = 'pinMode(' + AUTO_buzzer_PIN + ', OUTPUT);';
+    Blockly.Arduino.setups_['setup_buzzer_2' + AUTO_buzzer_PIN] = 'digitalWrite(' + AUTO_buzzer_PIN + ', HIGH);';
+    var code = 'digitalWrite(' + AUTO_buzzer_PIN + ',' + dropdown_value + ');\n'
+    return code;
+};
+```
+3. Add new block to Auto toolbox defined in ardublockly\ardublockly_toolbox.js
+```html
+    '  <category id="catAuto" name="AUTO">' +
+    '       <block type="auto_buzzer"></block>' +
+    '       <block type="auto_led"></block>' +
+```
 4. Rebuild the project and create new installer (if needed) 
 
 ## Credit
@@ -122,12 +173,9 @@ limitations under the License.
 [6]: https://github.com/carlosperate/ardublockly/wiki/Configure-Ardublockly
 [7]: https://github.com/carlosperate/ardublockly/wiki
 [8]: https://github.com/carlosperate/ardublockly/compare/blockly-original...master
-[9]: https://github.com/carlosperate/ardublockly/blob/master/LICENSE
+[9]: https://github.com/MM-Soft-Auto/ardublockly/blob/master/LICENSE
 [10]: http://ardublockly.embeddedlog.com/demo/index.html
 [11]: http://ardublockly.embeddedlog.com/demo/classic/index.html
-[12]: http://ardublockly-builds.s3-website-us-west-2.amazonaws.com/index.html?prefix=linux/
-[13]: http://ardublockly-builds.s3-website-us-west-2.amazonaws.com/index.html?prefix=windows/
-[14]: http://ardublockly-builds.s3-website-us-west-2.amazonaws.com/index.html?prefix=mac/
 [15]: http://www.arduino.cc
 [16]: https://github.com/BlocklyDuino/BlocklyDuino
 [17]: blockly/README.md
