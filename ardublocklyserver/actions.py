@@ -126,12 +126,14 @@ def load_arduino_cli(sketch_path):
                 cli_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                 shell=False)
             std_out, err_out = process.communicate()
-            if (platform.system() == "Windows"):                
-                std_out = std_out.decode("cp1250")
-                err_out = err_out.decode("cp1250")
-            else:
-                std_out = six.u(std_out)
-                err_out = six.u(err_out)
+            # if (platform.system() == "Windows"):                
+            #     std_out = std_out.decode("cp1250")
+            #     err_out = err_out.decode("cp1250")
+            # else:
+            #     std_out = six.u(std_out)
+            #     err_out = six.u(err_out)
+            std_out = std_out.decode("utf-8")
+            err_out = err_out.decode("utf-8")
             exit_code = process.returncode
             print('Arduino output:\n%s' % std_out)
             print('Arduino Error output:\n%s' % err_out)
