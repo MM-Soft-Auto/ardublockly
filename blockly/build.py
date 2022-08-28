@@ -42,7 +42,7 @@ if sys.version_info[0] != 2:
   raise Exception("Blockly build only compatible with Python 2.x.\n"
                   "You are using: " + sys.version)
 
-import errno, glob, fnmatch, httplib, json, os, re, subprocess, threading, urllib
+import errno, glob, fnmatch, httplib, json, os, re, subprocess, threading, urllib, ssl
 
 
 def import_path(fullpath):
@@ -270,7 +270,8 @@ class Gen_compressed(threading.Thread):
   def do_compile(self, params, target_filename, filenames, remove):
     # Send the request to Google.
     headers = {"Content-type": "application/x-www-form-urlencoded"}
-    conn = httplib.HTTPSConnection("closure-compiler.appspot.com")
+    ctx = ssl._create_unverified_context()
+    conn = httplib.HTTPSConnection("closure-compiler.appspot.com", context=ctx)
     conn.request("POST", "/compile", urllib.urlencode(params), headers)
     response = conn.getresponse()
     json_str = response.read()

@@ -27,5 +27,8 @@
     },
     "bugs": {
         "url": "https://github.com/carlosperate/ardublockly/issues"
-    }
+    },
+    "overrides": {
+        "graceful-fs": "^4.2.10"
+    }    
 }
