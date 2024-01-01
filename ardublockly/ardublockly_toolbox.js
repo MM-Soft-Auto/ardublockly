@@ -231,8 +231,8 @@ Ardublockly.TOOLBOX_XML =
     // '    <block type="spi_transfer"></block>' +
     // '    <block type="spi_transfer_return"></block>' +
     // '  </category>' +
-    '  <sep></sep>' +
-    // '  <category name="SMARS">' +
+    // '  <sep></sep>' +
+    // '  <category id="catSMARS" name="SMARS">' +
     // '       <block type="smars_buzzer"></block>' +
     // '       <block type="smars_led_display">' +
     // '           <value name="VALUE">' +
@@ -272,10 +272,11 @@ Ardublockly.TOOLBOX_XML =
     // '           </value>' +
     // '       </block>' +
     // '  </category>' +
-    '  <category id="catAuto" name="AUTO">' +
-    '       <block type="auto_buzzer"></block>' +
-    '       <block type="auto_led"></block>' +
-    '       <block type="auto_lcd_display">' +
+    '  <sep></sep>' +
+    '  <category id="catCRANE" name="CRANE">' +
+    '       <block type="crane_joystick"></block>' +
+    '       <block type="crane_joystick_sw"></block>' +
+    '       <block type="crane_lcd_display">' +
     '           <value name="POSX">' +
     '               <block type="math_number">' +
     '                   <field name="NUM">0</field>' +
@@ -292,37 +293,70 @@ Ardublockly.TOOLBOX_XML =
     '               </block>' +
     '           </value>' +
     '       </block>' +
-    '       <block type="auto_ultrasonic"></block>' +
-    '       <block type="auto_motor">' +
+    '       <block type="crane_motor_type"></block>' +
+    '       <block type="crane_motor_dir"></block>' +
+    '       <block type="crane_motor_angle"></block>' +
+    '       <block type="crane_motor_position_get">' +
+    '           <value name="MOTOR">' +
+    '               <block type="crane_motor_type">' +
+    '                   <field name="TYPE">0</field>' +
+    '               </block>' +
+    '           </value>' +
+    '       </block>' +
+    '       <block type="crane_motor_setup">' +
+    '           <value name="MOTOR">' +
+    '               <block type="crane_motor_type">' +
+    '                   <field name="TYPE">0</field>' +
+    '               </block>' +
+    '           </value>' +
+    '           <value name="MIN">' +
+    '               <block type="crane_motor_angle">' +
+    '                   <field name="ANGLE">-90</field>' +
+    '               </block>' +
+    '           </value>' +
+    '           <value name="MAX">' +
+    '               <block type="crane_motor_angle">' +
+    '                   <field name="ANGLE">90</field>' +
+    '               </block>' +
+    '           </value>' +
+    '       </block>' +
+    '       <block type="crane_motor">' +
+    '           <value name="MOTOR">' +
+    '               <block type="crane_motor_type">' +
+    '                   <field name="TYPE">0</field>' +
+    '               </block>' +
+    '           </value>' +
+    '           <value name="FUNCTION">' +
+    '               <block type="crane_motor_dir">' +
+    '                   <field name="DIR">0</field>' +
+    '               </block>' +
+    '           </value>' +
     '           <value name="SPEED">' +
     '               <block type="math_number">' +
-    '                   <field name="NUM">200</field>' +
+    '                   <field name="NUM">10</field>' +
     '               </block>' +
     '           </value>' +
     '       </block>' +
-    '       <block type="auto_motor_stop"></block>' +
-    '       <block type="auto_bt_command">' +
-    '           <value name="CMD">' +
-    '               <block type="text">' +
-    '                   <field name="TEXT">???</field>' +
+    '       <block type="crane_motor_position">' +
+    '           <value name="MOTOR">' +
+    '               <block type="crane_motor_type">' +
+    '                   <field name="TYPE">0</field>' +
+    '               </block>' +
+    '           </value>' +
+    '           <value name="ANGLE">' +
+    '               <block type="crane_motor_angle">' +
+    '                   <field name="ANGLE">0</field>' +
     '               </block>' +
     '           </value>' +
     '       </block>' +
-    '       <block type="auto_bt_message">' +
-    '           <value name="CMD">' +
-    '               <block type="text">' +
-    '                   <field name="TEXT">???</field>' +
-    '               </block>' +
-    '           </value>' +
-    '       </block>' +
-    '       <block type="auto_timer_cyclic">' +
+    '       <block type="crane_timer_cyclic">' +
     '           <value name="TIME">' +
     '               <block type="math_number">' +
     '                   <field name="NUM">1000</field>' +
     '               </block>' +
     '           </value>' +
     '       </block>' +
-    '       <block type="auto_timer_once">' +
+    '       <block type="crane_timer_once">' +
     '           <value name="TIME">' +
     '               <block type="math_number">' +
     '                   <field name="NUM">1000</field>' +
@@ -330,4 +364,62 @@ Ardublockly.TOOLBOX_XML =
     '           </value>' +
     '       </block>' +
     '  </category>' +
+    // '  <category id="catAuto" name="AUTO">' +
+    // '       <block type="auto_buzzer"></block>' +
+    // '       <block type="auto_led"></block>' +
+    // '       <block type="auto_lcd_display">' +
+    // '           <value name="POSX">' +
+    // '               <block type="math_number">' +
+    // '                   <field name="NUM">0</field>' +
+    // '               </block>' +
+    // '           </value>' +
+    // '           <value name="POSY">' +
+    // '               <block type="math_number">' +
+    // '                   <field name="NUM">0</field>' +
+    // '               </block>' +
+    // '           </value>' +
+    // '           <value name="VALUE">' +
+    // '               <block type="text">' +
+    // '                   <field name="TEXT">???</field>' +
+    // '               </block>' +
+    // '           </value>' +
+    // '       </block>' +
+    // '       <block type="auto_ultrasonic"></block>' +
+    // '       <block type="auto_motor">' +
+    // '           <value name="SPEED">' +
+    // '               <block type="math_number">' +
+    // '                   <field name="NUM">200</field>' +
+    // '               </block>' +
+    // '           </value>' +
+    // '       </block>' +
+    // '       <block type="auto_motor_stop"></block>' +
+    // '       <block type="auto_bt_command">' +
+    // '           <value name="CMD">' +
+    // '               <block type="text">' +
+    // '                   <field name="TEXT">???</field>' +
+    // '               </block>' +
+    // '           </value>' +
+    // '       </block>' +
+    // '       <block type="auto_bt_message">' +
+    // '           <value name="CMD">' +
+    // '               <block type="text">' +
+    // '                   <field name="TEXT">???</field>' +
+    // '               </block>' +
+    // '           </value>' +
+    // '       </block>' +
+    // '       <block type="auto_timer_cyclic">' +
+    // '           <value name="TIME">' +
+    // '               <block type="math_number">' +
+    // '                   <field name="NUM">1000</field>' +
+    // '               </block>' +
+    // '           </value>' +
+    // '       </block>' +
+    // '       <block type="auto_timer_once">' +
+    // '           <value name="TIME">' +
+    // '               <block type="math_number">' +
+    // '                   <field name="NUM">1000</field>' +
+    // '               </block>' +
+    // '           </value>' +
+    // '       </block>' +
+    // '  </category>' +
     '</xml>';

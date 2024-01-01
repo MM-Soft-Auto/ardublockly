@@ -37,20 +37,14 @@ var splashWindow = null;
 })();
 
 // Ensure this is a single instance application
-const shouldQuit = app.makeSingleInstance(function(cmdLine, workingDirectory) {
-  // User tried to run a second instance, focus existing window.
-  if (mainWindow) {
-    if (mainWindow.isMinimized()) mainWindow.restore();
-    mainWindow.focus();
-  }
-});
+app.requestSingleInstanceLock()
+app.on('second-instance', (event, argv, cwd) => {
+    app.quit();
+    return;
+})
 
 // Electron application entry point
 app.on('ready', function() {
-    if (shouldQuit) {
-      app.quit();
-      return;
-    }
 
     setupLogging();
     createSplashWindow();
@@ -81,11 +75,12 @@ app.on('ready', function() {
         }
     });
 
-    if (packageData.env.name === 'development') {
-        appMenu.setArdublocklyMenu(true);
-    } else {
-        appMenu.setArdublocklyMenu();
-    }
+    // if (packageData.env.name === 'development') {
+    //     appMenu.setArdublocklyMenu(true);
+    // } else {
+    //     appMenu.setArdublocklyMenu();
+    // }
+    appMenu.setArdublocklyMenu();
 
     mainWindow.webContents.on('did-fail-load',
         function(event, errorCode, errorDescription) {

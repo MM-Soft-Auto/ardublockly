@@ -561,19 +561,19 @@ Blockly.Arduino.auto_bt_message = function() {
 };
 
 // Timer handler:
-var tm_id = 1;
+var auto_tm_id = 2000;
 Blockly.Arduino.auto_timer_cyclic = function() {
     var time = Blockly.Arduino.valueToCode(this, 'TIME', Blockly.Arduino.ORDER_ATOMIC);
     var branch = Blockly.Arduino.statementToCode(this, 'DO');
-    Blockly.Arduino.handlers_['softtimer_cb_' + tm_id] =
-        "void t" + tm_id + "_CyclicRun(Task * self)\n" +
+    Blockly.Arduino.handlers_['softtimer_cb_' + auto_tm_id] =
+        "void t" + auto_tm_id + "_CyclicRun(Task * self)\n" +
         "{\n" +
         branch +
         "}\n";
-    Blockly.Arduino.setups_['softtimer_def_' + tm_id] = 'static Task t' + tm_id + '( ' + time + ', t' + tm_id + '_CyclicRun );';
-    Blockly.Arduino.setups_['softtimer_setup_' + tm_id] = 'SoftTimer.add( &t' + tm_id + ' );\n';
+    Blockly.Arduino.setups_['softtimer_def_' + auto_tm_id] = 'static Task t' + auto_tm_id + '( ' + time + ', t' + auto_tm_id + '_CyclicRun );';
+    Blockly.Arduino.setups_['softtimer_setup_' + auto_tm_id] = 'SoftTimer.add( &t' + auto_tm_id + ' );\n';
     var code = "";
-    tm_id = tm_id + 1;
+    auto_tm_id = auto_tm_id + 1;
     return code;
 };
 
@@ -581,15 +581,15 @@ Blockly.Arduino.auto_timer_once = function() {
     var time = Blockly.Arduino.valueToCode(this, 'TIME', Blockly.Arduino.ORDER_ATOMIC);
     var branch = Blockly.Arduino.statementToCode(this, 'DO');
     Blockly.Arduino.definitions_['delayrun_include'] = '#include <DelayRun.h>\n';
-    Blockly.Arduino.handlers_['delayrun_cb_' + tm_id] =
-        "boolean t" + tm_id + "_DelayedRun(Task * self)\n" +
+    Blockly.Arduino.handlers_['delayrun_cb_' + auto_tm_id] =
+        "boolean t" + auto_tm_id + "_DelayedRun(Task * self)\n" +
         "{\n" +
         branch +
         "  return false;\n" +
         "}\n";
     var code =
-        "static DelayRun t" + tm_id + "( " + time + ", t" + tm_id + "_DelayedRun );\n" +
-        "t" + tm_id + ".startDelayed();\n";
-    tm_id = tm_id + 1;
+        "static DelayRun t" + auto_tm_id + "( " + time + ", t" + auto_tm_id + "_DelayedRun );\n" +
+        "t" + auto_tm_id + ".startDelayed();\n";
+    auto_tm_id = auto_tm_id + 1;
     return code;
 };

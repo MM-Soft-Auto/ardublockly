@@ -4,17 +4,23 @@ ROOT=`pwd`
 
 cd ..
 
+rm -rf ./arduexec
+
 cd blockly
-./build.py
+python ./build.py
 cd ..
 
-python3 ./package/build_pyinstaller.py
+python3 ./package/build_pyinstaller.py mac
 
 cd ./package/electron
+
+rm -rf ./dist
+
 npm install
-npm run release
+# npm run release
+npm run build
 cd ../../
 
-python package/pack_ardublockly.py
+# python package/pack_ardublockly.py
 
 cd $ROOT

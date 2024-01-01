@@ -484,10 +484,11 @@ Code.initLanguage = function() {
     document.getElementById('runButton').title = MSG['runTooltip'];
     document.getElementById('trashButton').title = MSG['trashTooltip'];
 
-    var categories = ['catLogic', 'catLoops', 'catMath', 'catText', 'catLists',
-        'catColour', 'catVariables', 'catFunctions', 'catAuto'
-    ];
-    for (var i = 0, cat; cat = categories[i]; i++) {
+    // var categories = ['catLogic', 'catLoops', 'catMath', 'catText', 'catLists',
+    //     'catColour', 'catVariables', 'catFunctions', 'catAuto', 'catSMARS'
+    // ];
+    var categoryNodes = Ardublockly.xmlTree.getElementsByTagName('category');
+    for (var i = 0, cat; cat = categoryNodes[i]; i++) {
         document.getElementById(cat).setAttribute('name', MSG[cat]);
     }
     var textVars = document.getElementsByClassName('textVar');

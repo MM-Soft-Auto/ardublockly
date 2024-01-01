@@ -88,7 +88,7 @@ Blockly.Arduino.DEF_FUNC_NAME = Blockly.Arduino.FUNCTION_NAME_PLACEHOLDER_;
  * names, and variable names.
  * @param {Blockly.Workspace} workspace Workspace to generate code from.
  */
-Blockly.Arduino.init = function(workspace) {
+Blockly.Arduino.init = function (workspace) {
     // Create a dictionary of definitions to be printed at the top of the sketch
     Blockly.Arduino.includes_ = Object.create(null);
     // Create a dictionary of global definitions to be printed after variables
@@ -133,7 +133,7 @@ Blockly.Arduino.init = function(workspace) {
  * @param {string} code Generated main program (loop function) code.
  * @return {string} Completed sketch code.
  */
-Blockly.Arduino.finish = function(code) {
+Blockly.Arduino.finish = function (code) {
     // Indent every line.
     code = '  ' + code.replace(/\n/g, '\n  ');
     code = code.replace(/\n\s+$/, '\n');
@@ -250,10 +250,14 @@ Blockly.Arduino.finish = function(code) {
         '\nvoid setup() \n{\n  ' +
         setups.join('\n  ') + '\n}\n\n' +
         '//-----------------------------------\n' +
-        '// ARDUINO Main-Loop & Handlers\n' +
+        '// ARDUINO Main-Loop \n' +
         '//-----------------------------------\n';
 
-    return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code + '\n\n' + handlers.join('\n') + '\n';
+    return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code + '\n\n' +
+        '//-----------------------------------\n' +
+        '// ARDUINO Handlers\n' +
+        '//-----------------------------------\n' +
+        handlers.join('\n') + '\n';
 };
 
 /**
@@ -262,7 +266,7 @@ Blockly.Arduino.finish = function(code) {
  * @param {!string} includeTag Identifier for this include code.
  * @param {!string} code Code to be included at the very top of the sketch.
  */
-Blockly.Arduino.addInclude = function(includeTag, code) {
+Blockly.Arduino.addInclude = function (includeTag, code) {
     if (Blockly.Arduino.includes_[includeTag] === undefined) {
         Blockly.Arduino.includes_[includeTag] = code;
     }
@@ -274,7 +278,7 @@ Blockly.Arduino.addInclude = function(includeTag, code) {
  * @param {!string} declarationTag Identifier for this declaration code.
  * @param {!string} code Code to be added below the includes.
  */
-Blockly.Arduino.addDeclaration = function(declarationTag, code) {
+Blockly.Arduino.addDeclaration = function (declarationTag, code) {
     if (Blockly.Arduino.definitions_[declarationTag] === undefined) {
         Blockly.Arduino.definitions_[declarationTag] = code;
     }
@@ -289,7 +293,7 @@ Blockly.Arduino.addDeclaration = function(declarationTag, code) {
  * @param {boolean=} overwrite Flag to ignore previously set value.
  * @return {!boolean} Indicates if the declaration overwrote a previous one.
  */
-Blockly.Arduino.addVariable = function(varName, code, overwrite) {
+Blockly.Arduino.addVariable = function (varName, code, overwrite) {
     var overwritten = false;
     if (overwrite || (Blockly.Arduino.variables_[varName] === undefined)) {
         Blockly.Arduino.variables_[varName] = code;
@@ -308,7 +312,7 @@ Blockly.Arduino.addVariable = function(varName, code, overwrite) {
  * @param {boolean=} overwrite Flag to ignore previously set value.
  * @return {!boolean} Indicates if the new setup code overwrote a previous one.
  */
-Blockly.Arduino.addSetup = function(setupTag, code, overwrite) {
+Blockly.Arduino.addSetup = function (setupTag, code, overwrite) {
     var overwritten = false;
     if (overwrite || (Blockly.Arduino.setups_[setupTag] === undefined)) {
         Blockly.Arduino.setups_[setupTag] = code;
@@ -326,7 +330,7 @@ Blockly.Arduino.addSetup = function(setupTag, code, overwrite) {
  * @param {!string} code Code to be included in the setup() function.
  * @return {!string} A unique function name based on input name.
  */
-Blockly.Arduino.addFunction = function(preferedName, code) {
+Blockly.Arduino.addFunction = function (preferedName, code) {
     if (Blockly.Arduino.codeFunctions_[preferedName] === undefined) {
         var uniqueName = Blockly.Arduino.variableDB_.getDistinctName(
             preferedName, Blockly.Generator.NAME_TYPE);
@@ -344,7 +348,7 @@ Blockly.Arduino.addFunction = function(preferedName, code) {
  * @param {!string} pinType Description.
  * @param {!string} warningTag Description.
  */
-Blockly.Arduino.reservePin = function(block, pin, pinType, warningTag) {
+Blockly.Arduino.reservePin = function (block, pin, pinType, warningTag) {
     if (Blockly.Arduino.pins_[pin] !== undefined) {
         if (Blockly.Arduino.pins_[pin] != pinType) {
             block.setWarningText(Blockly.Msg.ARD_PIN_WARN1.replace('%1', pin)
@@ -365,7 +369,7 @@ Blockly.Arduino.reservePin = function(block, pin, pinType, warningTag) {
  * @param {string} line Line of generated code.
  * @return {string} Legal line of code.
  */
-Blockly.Arduino.scrubNakedValue = function(line) {
+Blockly.Arduino.scrubNakedValue = function (line) {
     return line + ';\n';
 };
 
@@ -375,7 +379,7 @@ Blockly.Arduino.scrubNakedValue = function(line) {
  * @return {string} Arduino string.
  * @private
  */
-Blockly.Arduino.quote_ = function(string) {
+Blockly.Arduino.quote_ = function (string) {
     // TODO: This is a quick hack.  Replace with goog.string.quote
     string = string.replace(/\\/g, '\\\\')
         .replace(/\n/g, '\\\n')
@@ -394,7 +398,7 @@ Blockly.Arduino.quote_ = function(string) {
  * @this {Blockly.CodeGenerator}
  * @private
  */
-Blockly.Arduino.scrub_ = function(block, code) {
+Blockly.Arduino.scrub_ = function (block, code) {
     if (code === null) { return ''; } // Block has handled code generation itself
 
     var commentCode = '';
@@ -431,7 +435,7 @@ Blockly.Arduino.scrub_ = function(block, code) {
  *     string format.
  * @private
  */
-Blockly.Arduino.getArduinoType_ = function(typeBlockly) {
+Blockly.Arduino.getArduinoType_ = function (typeBlockly) {
     switch (typeBlockly.typeId) {
         case Blockly.Types.SHORT_NUMBER.typeId:
             return 'char';
@@ -461,9 +465,9 @@ Blockly.Arduino.getArduinoType_ = function(typeBlockly) {
 };
 
 /** Used for not-yet-implemented block code generators */
-Blockly.Arduino.noGeneratorCodeInline = function() {
+Blockly.Arduino.noGeneratorCodeInline = function () {
     return ['', Blockly.Arduino.ORDER_ATOMIC];
 };
 
 /** Used for not-yet-implemented block code generators */
-Blockly.Arduino.noGeneratorCodeLine = function() { return ''; };
+Blockly.Arduino.noGeneratorCodeLine = function () { return ''; };

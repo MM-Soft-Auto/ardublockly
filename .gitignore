@@ -110,3 +110,9 @@ package/ardublocklydocs/site
 !/package/electron/tasks/build/
 
 *-lock.json
+
+/Frameworks
+/Resources
+
+Info.plist
+PkgInfo
