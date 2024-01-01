@@ -87,12 +87,9 @@ Blockly.Blocks['crane_joystick_sw'] = {
 // Motor (servo):
 
 Blockly.Types.MOTOR_TYPE = new Blockly.Type({
-    typeId: 'MotorType',
+    typeId: 'Number',
     typeMsgName: 'CRANE_MOTOR_TYPE',
-    compatibleTypes: [
-        Blockly.Types.NUMBER,
-        Blockly.Types.TEXT
-    ]
+    compatibleTypes: []
 });
 
 Blockly.Blocks['crane_motor_type'] = {
@@ -113,11 +110,10 @@ Blockly.Blocks['crane_motor_type'] = {
 };
 
 Blockly.Types.MOTOR_DIR = new Blockly.Type({
-    typeId: 'MotorDir',
+    typeId: 'Number',
     typeMsgName: 'CRANE_MOTOR_DIR',
     compatibleTypes: [
-        Blockly.Types.NUMBER,
-        Blockly.Types.TEXT
+        Blockly.Types.NUMBER
     ]
 });
 
@@ -138,11 +134,10 @@ Blockly.Blocks['crane_motor_dir'] = {
 };
 
 Blockly.Types.MOTOR_ANGLE = new Blockly.Type({
-    typeId: 'MotorAngle',
-    typeMsgName: 'CRANE_MOTOR_ANGLE',
+    typeId: 'Number',
+    typeMsgName: 'CRANE_MOTOR_ANGLE_TYPE',
     compatibleTypes: [
-        Blockly.Types.NUMBER,
-        Blockly.Types.TEXT
+        Blockly.Types.NUMBER
     ]
 });
 

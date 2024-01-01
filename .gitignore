@@ -116,3 +116,9 @@ package/ardublocklydocs/site
 
 Info.plist
 PkgInfo
+
+/blockly/msg/js/*.js
+
+arduino_compressed.js
+blockly_uncompressed.js
+blocks_compressed.js

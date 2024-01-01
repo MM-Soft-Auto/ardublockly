@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-08-28 21:22:01.162477",
+		"lastupdated": "2024-01-01 23:25:12.036442",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -430,7 +430,7 @@
     "CRANE_JOY_LEFT": "Lewy",
     "CRANE_JOY_SW_MESSAGE": "Przycisk Joysticka",
     "CRANE_JOY_SW_TIP": "Odczyt przycisku joysticka",
-    "CRANE_MOTOR_SET": "Ruch %1 ustaw %2 prędkość %3 ms/stopeń",
+    "CRANE_MOTOR_SET": "Ruch %1 ustaw %2 prędkość %3 ms/stopień",
     "CRANE_MOTOR_TIP": "Sterowanie silnikiem krokowym (servo)",
 	"CRANE_MOTOR_HANDLE": "Chwytak",
 	"CRANE_MOTOR_VERTICAL": "Góra/Dół",
@@ -444,7 +444,7 @@
     "CRANE_MOTOR_POSITION_3": "stopni (-90/+90)",
     "CRANE_MOTOR_POSITION_TIP": "Ustawienie pozycji dla silnika krokowego (servo)",
     "CRANE_MOTOR_TYPE": "Rodzaj silnika",
-    "CRANE_MOTOR_TYPE_TIP": "Rodzaj uzywanego silnika (servo)",
+    "CRANE_MOTOR_TYPE_TIP": "Rodzaj uywanego silnika (servo)",
     "CRANE_MOTOR_DIR": "Kierunek ruchu",
     "CRANE_MOTOR_DIR_TIP": "Kierunek ruchu silnika (servo)",
 	"CRANE_MOTOR_SETUP_1": "Konfiguruj",
@@ -454,6 +454,7 @@
 	"CRANE_MOTOR_POSITION_GET": "Odczytaj pozycję",
 	"CRANE_MOTOR_POSITION_GET_TIP": "Pobierz bierzącą pozycję silnika (servo)",
 	"CRANE_MOTOR": "silnik",
+	"CRANE_MOTOR_ANGLE_TYPE": "Kąt",
 	"CRANE_MOTOR_ANGLE": "kąt",
 	"CRANE_MOTOR_MOVE": "ruch"
 }

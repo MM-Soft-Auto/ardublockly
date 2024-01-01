@@ -411,7 +411,7 @@
     "CRANE_MOTOR_POSITION_2": "pozycja",
     "CRANE_MOTOR_POSITION_3": "stopni (-90/+90)",
     "CRANE_MOTOR_POSITION_TIP": "Ustawienie pozycji dla silnika krokowego (servo)",
-    "CRANE_MOTOR_TYPE": "Rodzaj",
+    "CRANE_MOTOR_TYPE": "Rodzaj silnika",
     "CRANE_MOTOR_TYPE_TIP": "Rodzaj uywanego silnika (servo)",
     "CRANE_MOTOR_DIR": "Kierunek ruchu",
     "CRANE_MOTOR_DIR_TIP": "Kierunek ruchu silnika (servo)",
@@ -422,6 +422,7 @@
 	"CRANE_MOTOR_POSITION_GET": "Odczytaj pozycję",
 	"CRANE_MOTOR_POSITION_GET_TIP": "Pobierz bierzącą pozycję silnika (servo)",
 	"CRANE_MOTOR": "silnik",
+	"CRANE_MOTOR_ANGLE_TYPE": "Kąt",
 	"CRANE_MOTOR_ANGLE": "kąt",
 	"CRANE_MOTOR_MOVE": "ruch"
 }
