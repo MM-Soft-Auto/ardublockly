@@ -89,7 +89,9 @@ Blockly.Blocks['crane_joystick_sw'] = {
 Blockly.Types.MOTOR_TYPE = new Blockly.Type({
     typeId: 'Number',
     typeMsgName: 'CRANE_MOTOR_TYPE',
-    compatibleTypes: []
+    compatibleTypes: [
+        Blockly.Types.NUMBER
+    ]
 });
 
 Blockly.Blocks['crane_motor_type'] = {
@@ -250,8 +252,8 @@ Blockly.Blocks['crane_motor_position'] = {
             .appendField(Blockly.Msg.CRANE_MOTOR_POSITION_2);
         this.appendValueInput('ANGLE')
             .setCheck(Blockly.Types.MOTOR_ANGLE.checkList);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.CRANE_MOTOR_POSITION_3);
+        // this.appendDummyInput()
+        //     .appendField(Blockly.Msg.CRANE_MOTOR_POSITION_3);
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);

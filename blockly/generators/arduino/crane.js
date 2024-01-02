@@ -4,6 +4,10 @@ goog.provide('Blockly.Arduino.crane');
 
 goog.require('Blockly.Arduino');
 
+const CRANE_motors = [
+    0, 1, 2, 3
+];
+
 const CRANE_joy_pins = [
     ['A1', 'A0'],         // Left [X, Y]
     ['A3', 'A2'],         // Right [X, Y]
@@ -134,6 +138,21 @@ Blockly.Arduino['crane_setup_motors'] = function (motor) {
         "  }\n" +
         "}\n";
 
+    var servoMove = "static int servoMove ( int motor, int step, int speed )\n" +
+        "{\n";
+        for (var id of CRANE_motors) {
+            for (var name in Blockly.Arduino.userFunctions_) {
+                if (name.startsWith("function_servo_move_motor_" + id)) {
+                    servoMove += "  if ( motor == " + id + " )\n" +
+                    "  {\n" +
+                    "    motor_" + id + "_servoMove ( step, speed );\n" +
+                    "  }\n";        
+                }
+            }    
+        }
+        servoMove += "}\n";
+    Blockly.Arduino.userFunctions_["function_servo_move"] = servoMove;
+
     Blockly.Arduino.userFunctions_["function_servo_position_" + motor_id] =
         "static int " + motor_id + "_servoPosition ( int position )\n" +
         "{\n" +
@@ -141,12 +160,42 @@ Blockly.Arduino['crane_setup_motors'] = function (motor) {
         "  " + motor_position + " = position;\n" +
         "}\n";
 
+    var servoPosition = "static int servoPosition ( int motor, int position )\n" +
+        "{\n";
+        for (var id of CRANE_motors) {
+            for (var name in Blockly.Arduino.userFunctions_) {
+                if (name.startsWith("function_servo_position_motor_" + id)) {
+                    servoPosition += "  if ( motor == " + id + " )\n" +
+                    "  {\n" +
+                    "    motor_" + id + "_servoPosition ( position );\n" +
+                    "  }\n";        
+                }
+            }    
+        }
+        servoPosition += "}\n";
+    Blockly.Arduino.userFunctions_["function_servo_position"] = servoPosition;
+        
     Blockly.Arduino.userFunctions_["function_servo_setup_" + motor_id] =
         "static int " + motor_id + "_servoSetup ( int min, int max )\n" +
         "{\n" +
         "  " + motor_position_min + " = min;\n" +
         "  " + motor_position_max + " = max;\n" +
         "}\n";
+
+    var servoSetup = "static int servoSetup ( int motor, int min, int max )\n" +
+        "{\n";
+        for (var id of CRANE_motors) {
+            for (var name in Blockly.Arduino.userFunctions_) {
+                if (name.startsWith("function_servo_setup_motor_" + id)) {
+                    servoSetup += "  if ( motor == " + id + " )\n" +
+                    "  {\n" +
+                    "    motor_" + id + "_servoSetup ( min, max );\n" +
+                    "  }\n";        
+                }
+            }    
+        }
+        servoSetup += "}\n";
+    Blockly.Arduino.userFunctions_["function_servo_setup"] = servoSetup;
 
     Blockly.Arduino.setups_["setup_wire"] = "Wire.begin();  // Wire must be started first\n" +
         "  Wire.setClock(400000);  // Supported baud rates are 100kHz, 400kHz, and 1000kHz\n";
@@ -171,12 +220,10 @@ Blockly.Arduino['crane_motor'] = function (block) {
     var dropdown_motor = Blockly.Arduino.valueToCode(this, 'MOTOR', Blockly.Arduino.ORDER_ATOMIC) || '0';
     var speed = Blockly.Arduino.valueToCode(this, 'SPEED', Blockly.Arduino.ORDER_ATOMIC) || '10';
 
-    var motor_id = "motor_" + dropdown_motor;
-
     Blockly.Arduino['crane_setup_motors'](dropdown_motor);
 
     var code = "";
-    code = motor_id + '_servoMove ( ' + dropdown_function + ', ' + speed + ' );\n';
+    code = 'servoMove ( ' + dropdown_motor + ', ' + dropdown_function + ', ' + speed + ' );\n';
 
     return code;
 };
@@ -190,7 +237,7 @@ Blockly.Arduino['crane_motor_position'] = function (block) {
     Blockly.Arduino['crane_setup_motors'](dropdown_motor);
 
     var code = "";
-    code = motor_id + '_servoPosition ( ' + angle + ' );\n';
+    code = 'servoPosition ( ' + dropdown_motor + ', ' + angle + ' );\n';
 
     return code;
 }
@@ -214,12 +261,10 @@ Blockly.Arduino['crane_motor_setup'] = function (block) {
     var min = Blockly.Arduino.valueToCode(this, 'MIN', Blockly.Arduino.ORDER_ATOMIC) || '-90';
     var max = Blockly.Arduino.valueToCode(this, 'MAX', Blockly.Arduino.ORDER_ATOMIC) || '90';
 
-    var motor_id = "motor_" + dropdown_motor;
-
     Blockly.Arduino['crane_setup_motors'](dropdown_motor);
 
     var code = "";
-    code = motor_id + '_servoSetup ( ' + min + ', ' + max + ' );\n';
+    code = 'servoSetup ( ' + dropdown_motor + ', ' + min + ', ' + max + ' );\n';
 
     return code;
 }

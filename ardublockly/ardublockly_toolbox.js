@@ -298,16 +298,16 @@ Ardublockly.TOOLBOX_XML =
     '       <block type="crane_motor_angle"></block>' +
     '       <block type="crane_motor_position_get">' +
     '           <value name="MOTOR">' +
-    '               <block type="crane_motor_type">' +
+    '               <shadow type="crane_motor_type">' +
     '                   <field name="TYPE">0</field>' +
-    '               </block>' +
+    '               </shadow>' +
     '           </value>' +
     '       </block>' +
     '       <block type="crane_motor_setup">' +
     '           <value name="MOTOR">' +
-    '               <block type="crane_motor_type">' +
+    '               <shadow type="crane_motor_type">' +
     '                   <field name="TYPE">0</field>' +
-    '               </block>' +
+    '               </shadow>' +
     '           </value>' +
     '           <value name="MIN">' +
     '               <block type="crane_motor_angle">' +
@@ -322,9 +322,9 @@ Ardublockly.TOOLBOX_XML =
     '       </block>' +
     '       <block type="crane_motor">' +
     '           <value name="MOTOR">' +
-    '               <block type="crane_motor_type">' +
+    '               <shadow type="crane_motor_type">' +
     '                   <field name="TYPE">0</field>' +
-    '               </block>' +
+    '               </shadow>' +
     '           </value>' +
     '           <value name="FUNCTION">' +
     '               <block type="crane_motor_dir">' +
@@ -339,9 +339,9 @@ Ardublockly.TOOLBOX_XML =
     '       </block>' +
     '       <block type="crane_motor_position">' +
     '           <value name="MOTOR">' +
-    '               <block type="crane_motor_type">' +
+    '               <shadow type="crane_motor_type">' +
     '                   <field name="TYPE">0</field>' +
-    '               </block>' +
+    '               </shadow>' +
     '           </value>' +
     '           <value name="ANGLE">' +
     '               <block type="crane_motor_angle">' +
