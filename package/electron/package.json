@@ -1,34 +1,75 @@
 {
     "devDependencies": {
-        "asar": "^0.11.0",
-        "electron-prebuilt": "~1.2.0",
-        "fs-jetpack": "^0.9.0",
-        "gulp": "^3.9.0",
-        "gulp-batch": "^1.0.5",
-        "gulp-util": "^3.0.6",
-        "gulp-watch": "^4.3.5",
-        "q": "^1.4.1",
-        "rollup": "^0.26.3",
-        "yargs": "^4.2.0"
-    },
-    "optionalDependencies": {
-        "appdmg": "^0.3.2",
-        "rcedit": "^0.5.0"
+        "electron": "^25.4.0",
+        "electron-builder": "^24.6.3"
     },
     "scripts": {
         "postinstall": "cd app && npm install",
-        "build": "gulp build",
-        "release": "gulp release --env=production",
-        "start": "gulp start"
+        "build": "npm exec electron-builder"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/carlosperate/ardublockly.git"
+        "url": "https://github.com/MM-Soft-Auto"
     },
     "bugs": {
-        "url": "https://github.com/carlosperate/ardublockly/issues"
+        "url": "https://github.com/MM-Soft-Auto"
     },
     "overrides": {
         "graceful-fs": "^4.2.10"
-    }    
+    },
+    "build": {
+        "extraFiles": [
+          {
+            "from": "../../arduexec",
+            "to": "arduexec"
+          },
+          {
+            "from": "../../ardublockly",
+            "to": "ardublockly"
+          },
+          {
+            "from": "../../blockly/arduino_compressed.js",
+            "to": "blockly/arduino_compressed.js"
+          },
+          {
+            "from": "../../blockly/blockly_uncompressed.js",
+            "to": "blockly/blockly_uncompressed.js"
+          },
+          {
+            "from": "../../blockly/blocks_compressed.js",
+            "to": "blockly/blocks_compressed.js"
+          },
+          {
+            "from": "../../blockly/msg",
+            "to": "blockly/msg"
+          },
+          {
+            "from": "../../blockly/media",
+            "to": "blockly/media"
+          },
+          {
+            "from": "../../blockly/core",
+            "to": "blockly/core"
+          },
+          {
+            "from": "../../blockly/blocks",
+            "to": "blockly/blocks"
+          },
+          {
+            "from": "../../blockly/generators",
+            "to": "blockly/generators"
+          },
+          {
+            "from": "../../blocks/blocks_data.json",
+            "to": "blocks/blocks_data.json"
+          },
+          {
+            "from": "../../closure-library/closure",
+            "to": "closure-library/closure"
+          }
+        ],
+        "win": {
+          "icon" : "resources/windows/icon.ico"
+        }      
+    }
 }

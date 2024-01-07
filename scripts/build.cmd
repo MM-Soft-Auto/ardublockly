@@ -2,15 +2,16 @@
 
 cd ..
 
+del /F /S /Q .\arduexec
+
 cd .\blockly
 c:\python27\python .\build.py
 cd ..
 
-python3 .\package\build_pyinstaller.py
+python .\package\build_pyinstaller.py
 
 cd .\package\electron
-call npm install
-call npm run release
-cd ..\..\
 
-python .\package\pack_ardublockly.py
+del /F /S /Q .\dist
+
+npm install && npm run build && cd ..\..\

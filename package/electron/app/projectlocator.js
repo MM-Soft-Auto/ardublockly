@@ -15,12 +15,15 @@ const serverExecFolderName = 'server';
 const serverExecName = 'start';
 module.exports.ardublocklyExecFolderName = execFolderName;
 
+const electron = require('electron');
+const dialog = electron.dialog;
+
 const tag = '[ProjectLocator] ';
 
 var ardublocklyRootDir = null;
 
 function ardublocklyNotFound(working_dir) {
-    require('dialog').showMessageBox({
+    dialog.showMessageBox({
         type: 'warning',
         title: 'Unable to locate Ardublockly folder',
         buttons: ['ok'],

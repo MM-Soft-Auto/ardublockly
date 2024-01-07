@@ -27,14 +27,14 @@ var mainWindow = null;
 var splashWindow = null;
 
 // Set up the app data directory within the Ardublockly root directory
-(function setAppData() {
+function setAppData() {
     var appDataPath = projectLocator.getExecDirJetpack().cwd('appdata');
     app.setPath('appData', appDataPath.path());
     app.setPath('userData', appDataPath.path());
     app.setPath('cache', appDataPath.path('GenCache'));
     app.setPath('userCache', appDataPath.path('AppCache'));
     app.setPath('temp', appDataPath.path('temp'));
-})();
+};
 
 // Ensure this is a single instance application
 app.requestSingleInstanceLock()
@@ -45,6 +45,8 @@ app.on('second-instance', (event, argv, cwd) => {
 
 // Electron application entry point
 app.on('ready', function() {
+
+    setAppData();
 
     setupLogging();
     createSplashWindow();
