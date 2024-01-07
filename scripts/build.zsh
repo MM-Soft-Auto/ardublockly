@@ -17,10 +17,7 @@ cd ./package/electron
 rm -rf ./dist
 
 npm install
-# npm run release
 npm run build
 cd ../../
-
-# python package/pack_ardublockly.py
 
 cd $ROOT
