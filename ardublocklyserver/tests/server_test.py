@@ -30,7 +30,7 @@ from ardublocklyserver.compilersettings import ServerCompilerSettings
 settings = None
 document_root = None
 IP = 'localhost'
-PORT = 8000
+PORT = 8088
 
 
 def server_thread():

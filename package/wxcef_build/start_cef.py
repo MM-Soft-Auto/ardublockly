@@ -55,7 +55,7 @@ g_applicationSettings = None
 g_browserSettings = None
 g_countWindows = 0
 g_ardutag = "[ardublockly] "
-g_ardu_link = "http://localhost:8000/ardublockly/index.html"
+g_ardu_link = "http://localhost:8088/ardublockly/index.html"
 g_platform_os = None
 
 # Which method to use for message loop processing.
