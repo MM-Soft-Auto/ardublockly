@@ -110,7 +110,7 @@ app.on('ready', function() {
     mainWindow.webContents.session.setDownloadPath(
         process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME']);
 
-    mainWindow.loadURL('http://localhost:8000/ardublockly');
+    mainWindow.loadURL('http://localhost:8088/ardublockly');
 });
 
 app.on('window-all-closed', function() {
