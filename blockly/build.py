@@ -37,7 +37,11 @@
 #   lua_compressed.js: The compressed Lua generator.
 #   msg/js/<LANG>.js for every language <LANG> defined in msg/js/<LANG>.json.
 
+import tempfile
+import subprocess
+import json
 import sys
+import re
 if sys.version_info[0] != 2:
   raise Exception("Blockly build only compatible with Python 2.x.\n"
                   "You are using: " + sys.version)
@@ -185,17 +189,7 @@ class Gen_compressed(threading.Thread):
 
   def gen_core(self):
     target_filename = "blockly_compressed.js"
-    # Define the parameters for the POST request.
-    params = [
-        ("compilation_level", "SIMPLE_OPTIMIZATIONS"),
-        ("use_closure_library", "true"),
-        ("output_format", "json"),
-        ("output_info", "compiled_code"),
-        ("output_info", "warnings"),
-        ("output_info", "errors"),
-        ("output_info", "statistics"),
-      ]
-
+    params = []
     # Read in all the source files.
     filenames = calcdeps.CalculateDependencies(self.search_paths,
         [os.path.join("core", "blockly.js")])
@@ -211,16 +205,7 @@ class Gen_compressed(threading.Thread):
 
   def gen_blocks(self):
     target_filename = "blocks_compressed.js"
-    # Define the parameters for the POST request.
-    params = [
-        ("compilation_level", "SIMPLE_OPTIMIZATIONS"),
-        ("output_format", "json"),
-        ("output_info", "compiled_code"),
-        ("output_info", "warnings"),
-        ("output_info", "errors"),
-        ("output_info", "statistics"),
-      ]
-
+    params = []
     # Read in all the source files.
     # Add Blockly.Blocks to be compatible with the compiler.
     params.append(("js_code", "goog.provide('Blockly.Blocks');"))
@@ -240,16 +225,7 @@ class Gen_compressed(threading.Thread):
 
   def gen_generator(self, language):
     target_filename = language + "_compressed.js"
-    # Define the parameters for the POST request.
-    params = [
-        ("compilation_level", "SIMPLE_OPTIMIZATIONS"),
-        ("output_format", "json"),
-        ("output_info", "compiled_code"),
-        ("output_info", "warnings"),
-        ("output_info", "errors"),
-        ("output_info", "statistics"),
-      ]
-
+    params = []
     # Read in all the source files.
     # Add Blockly.Generator to be compatible with the compiler.
     params.append(("js_code", "goog.provide('Blockly.Generator');"))
@@ -268,102 +244,155 @@ class Gen_compressed(threading.Thread):
     self.do_compile(params, target_filename, filenames, remove)
 
   def do_compile(self, params, target_filename, filenames, remove):
-    # Send the request to Google.
-    headers = {"Content-type": "application/x-www-form-urlencoded"}
-    ctx = ssl._create_unverified_context()
-    conn = httplib.HTTPSConnection("closure-compiler.appspot.com", context=ctx)
-    conn.request("POST", "/compile", urllib.urlencode(params), headers)
-    response = conn.getresponse()
-    json_str = response.read()
-    conn.close()
+    
+    compiler = "google-closure-compiler"
+    temp_files = []
+    org_code = ""
 
-    # Parse the JSON response.
-    json_data = json.loads(json_str)
+    def _cleanup(files):
+      for f in files:
+        try:
+          os.unlink(f)
+        except OSError:
+          pass
+        
+    # --- FIXED compiler command ---
+    cmd = [
+        compiler,
+        "--compilation_level", "SIMPLE",
+        "--json_streams", "OUT",
+        "--warning_level", "DEFAULT",
+        "--language_in", "ECMASCRIPT_2016",
+        "--language_out", "ECMASCRIPT_2016",
+    ]
 
-    def file_lookup(name):
-      if not name.startswith("Input_"):
-        return "???"
-      n = int(name[6:]) - 1
-      return filenames[n]
+    # --- Handle js_code params (inline JS blocks) ---
+    for key, value in params:
+        if key == "js_code":
+            fd, path = tempfile.mkstemp(suffix=".js", prefix="closure_")
+            org_code = org_code + value
+            os.write(fd, value)
+            os.close(fd)
+            temp_files.append(path)
+            cmd.extend(["--js", path])
 
-    if json_data.has_key("serverErrors"):
-      errors = json_data["serverErrors"]
-      for error in errors:
-        print("SERVER ERROR: %s" % target_filename)
-        print(error["error"])
-    elif json_data.has_key("errors"):
-      errors = json_data["errors"]
-      for error in errors:
-        print("FATAL ERROR")
-        print(error["error"])
-        if error["file"]:
-          print("%s at line %d:" % (
-              file_lookup(error["file"]), error["lineno"]))
-          print(error["line"])
-          print((" " * error["charno"]) + "^")
+    # --- Execute compiler ---
+    try:
+        proc = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        stdout, stderr = proc.communicate()
+    except OSError as e:
+        print("FATAL ERROR: Could not execute Closure Compiler")
+        print(e)
+        _cleanup(temp_files)
         sys.exit(1)
+
+    # --- Parse JSON diagnostics ---
+    errors = []
+    warnings = []
+    stats = {}
+
+    for line in stderr.splitlines():
+        try:
+            msg = json.loads(line)
+        except ValueError:
+            continue
+
+        t = msg.get("type")
+        if t == "ERROR":
+            errors.append(msg)
+        elif t == "WARNING":
+            warnings.append(msg)
+        elif t == "STATS":
+            stats = msg.get("stats", {})
+
+    # --- Errors ---
+    if errors:
+        for error in errors:
+            print("FATAL ERROR")
+            print(error.get("description", ""))
+            if error.get("file"):
+                print("%s at line %d:") % (
+                    error["file"], error.get("line", 0))
+                print(error.get("sourceExcerpt", ""))
+                print (" " * error.get("charno", 0)) + "^"
+        _cleanup(temp_files)
+        sys.exit(1)
+
+    # --- Warnings ---
+    for warning in warnings:
+        print("WARNING")
+        print(warning.get("description", ""))
+        if warning.get("file"):
+            print("%s at line %d:") % (
+                warning["file"], warning.get("line", 0))
+            print(warning.get("sourceExcerpt", ""))
+            print (" " * warning.get("charno", 0)) + "^"
+
+    # --- Compiled output ---
+    if not stdout:
+        print("FATAL ERROR: Compiler did not return compiled code.")
+        _cleanup(temp_files)
+        sys.exit(1)
+
+    json_data = json.loads(stdout)[0]
+
+    if json_data.has_key("src"):
+      code = HEADER + "\n" + json_data["src"]
     else:
-      if json_data.has_key("warnings"):
-        warnings = json_data["warnings"]
-        for warning in warnings:
-          print("WARNING")
-          print(warning["warning"])
-          if warning["file"]:
-            print("%s at line %d:" % (
-                file_lookup(warning["file"]), warning["lineno"]))
-            print(warning["line"])
-            print((" " * warning["charno"]) + "^")
-        print()
-
-      if not json_data.has_key("compiledCode"):
-        print("FATAL ERROR: Compiler did not return compiledCode.")
+        print("FATAL ERROR: Compiler did not return compiled code.")
+        _cleanup(temp_files)
         sys.exit(1)
 
-      code = HEADER + "\n" + json_data["compiledCode"]
-      for code_statement in remove:
-          code = code.replace(code_statement, "")
+    for code_statement in remove:
+        code = code.replace(code_statement, "")
 
-      # Trim down Google's Apache licences.
-      # The Closure Compiler used to preserve these until August 2015.
-      # Delete this in a few months if the licences don't return.
-      LICENSE = re.compile("""/\\*
+    # --- License normalization (unchanged) ---
+    LICENSE = re.compile(r"""/\*
 
- [\w ]+
+[\w ]+
 
- (Copyright \\d+ Google Inc.)
- https://developers.google.com/blockly/
+(Copyright \d+ Google Inc.)
+https://developers.google.com/blockly/
 
- Licensed under the Apache License, Version 2.0 \(the "License"\);
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 \(the "License"\);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+  http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-\\*/""")
-      code = re.sub(LICENSE, r"\n// \1  Apache License 2.0", code)
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+\*/""", re.MULTILINE)
 
-      stats = json_data["statistics"]
-      original_b = stats["originalSize"]
-      compressed_b = stats["compressedSize"]
-      if original_b > 0 and compressed_b > 0:
+    code = re.sub(LICENSE, r"\n// \1  Apache License 2.0", code)
+
+    # --- Statistics & output ---
+    original_b = len(org_code)
+    compressed_b = len(code)
+
+    if original_b > 0 and compressed_b > 0:
         f = open(target_filename, "w")
         f.write(code)
         f.close()
 
-        original_kb = int(original_b / 1024 + 0.5)
-        compressed_kb = int(compressed_b / 1024 + 0.5)
+        original_kb = int(original_b / 1024.0 + 0.5)
+        compressed_kb = int(compressed_b / 1024.0 + 0.5)
         ratio = int(float(compressed_b) / float(original_b) * 100 + 0.5)
+
         print("SUCCESS: " + target_filename)
         print("Size changed from %d KB to %d KB (%d%%)." % (
             original_kb, compressed_kb, ratio))
-      else:
+    else:
         print("UNKNOWN ERROR")
 
+    _cleanup(temp_files)
 
 class Gen_langfiles(threading.Thread):
   """Generate JavaScript file for each natural language supported.
