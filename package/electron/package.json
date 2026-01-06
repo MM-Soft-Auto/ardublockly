@@ -66,6 +66,10 @@
           {
             "from": "../../closure-library/closure",
             "to": "closure-library/closure"
+          },
+          {
+            "from": "../../examples",
+            "to": "examples"
           }
         ],
         "win": {

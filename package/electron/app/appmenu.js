@@ -26,7 +26,7 @@ module.exports.setArdublocklyMenu = function(devMode) {
     ardublocklyMenu.push(getFileMenuData());
     ardublocklyMenu.push(getEditMenuData());
     ardublocklyMenu.push(getProgramMenuData());
-    ardublocklyMenu.push(getExamplesMenuData());
+    // ardublocklyMenu.push(getExamplesMenuData());
     if (process.platform == 'darwin') {
         ardublocklyMenu.push(getWindowMenuData());
     }
