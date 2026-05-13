@@ -41,6 +41,7 @@ import tempfile
 import subprocess
 import json
 import sys
+import platform
 import re
 if sys.version_info[0] != 2:
   raise Exception("Blockly build only compatible with Python 2.x.\n"
@@ -246,6 +247,9 @@ class Gen_compressed(threading.Thread):
   def do_compile(self, params, target_filename, filenames, remove):
     
     compiler = "google-closure-compiler"
+    if platform.system() == "Windows":
+      compiler = "google-closure-compiler.cmd"
+
     temp_files = []
     org_code = ""
 
@@ -287,6 +291,7 @@ class Gen_compressed(threading.Thread):
     except OSError as e:
         print("FATAL ERROR: Could not execute Closure Compiler")
         print(e)
+        # print(cmd)
         _cleanup(temp_files)
         sys.exit(1)
 
