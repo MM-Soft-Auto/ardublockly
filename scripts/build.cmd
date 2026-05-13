@@ -8,7 +8,7 @@ cd .\blockly
 c:\python27\python .\build.py
 cd ..
 
-python .\package\build_pyinstaller.py
+python .\package\build_pyinstaller.py windows
 
 cd .\package\electron
 
