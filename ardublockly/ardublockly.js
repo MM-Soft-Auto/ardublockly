@@ -82,28 +82,32 @@ Ardublockly.bindActionFunctions = function() {
     //   Ardublockly.loadServerXmlFile('../examples/SMARS_BT_001.xml');
     //   $('.button-collapse').sideNav('hide');
     // });
-    Ardublockly.bindClick_('menu_example_1', function() {
-        Ardublockly.loadServerXmlFile('../examples/Auto_Światła.xml');
-        $('.button-collapse').sideNav('hide');
-    });
-    Ardublockly.bindClick_('menu_example_2', function() {
-        Ardublockly.loadServerXmlFile('../examples/Auto_Dźwięk.xml');
-        $('.button-collapse').sideNav('hide');
-    });
-    Ardublockly.bindClick_('menu_example_3', function() {
-        Ardublockly.loadServerXmlFile('../examples/Auto_Sensor.xml');
-        $('.button-collapse').sideNav('hide');
-    });
-    Ardublockly.bindClick_('menu_example_4', function() {
-        Ardublockly.loadServerXmlFile('../examples/Auto_Napęd.xml');
-        $('.button-collapse').sideNav('hide');
-    });
-    Ardublockly.bindClick_('menu_example_5', function() {
-        Ardublockly.loadServerXmlFile('../examples/Auto_Bluetooth.xml');
-        $('.button-collapse').sideNav('hide');
-    });
-    Ardublockly.bindClick_('menu_example_6', function() {
-        Ardublockly.loadServerXmlFile('../examples/Auto_Sterowanie.xml');
+    // Ardublockly.bindClick_('menu_example_1', function() {
+    //     Ardublockly.loadServerXmlFile('../examples/Auto_Światła.xml');
+    //     $('.button-collapse').sideNav('hide');
+    // });
+    // Ardublockly.bindClick_('menu_example_2', function() {
+    //     Ardublockly.loadServerXmlFile('../examples/Auto_Dźwięk.xml');
+    //     $('.button-collapse').sideNav('hide');
+    // });
+    // Ardublockly.bindClick_('menu_example_3', function() {
+    //     Ardublockly.loadServerXmlFile('../examples/Auto_Sensor.xml');
+    //     $('.button-collapse').sideNav('hide');
+    // });
+    // Ardublockly.bindClick_('menu_example_4', function() {
+    //     Ardublockly.loadServerXmlFile('../examples/Auto_Napęd.xml');
+    //     $('.button-collapse').sideNav('hide');
+    // });
+    // Ardublockly.bindClick_('menu_example_5', function() {
+    //     Ardublockly.loadServerXmlFile('../examples/Auto_Bluetooth.xml');
+    //     $('.button-collapse').sideNav('hide');
+    // });
+    // Ardublockly.bindClick_('menu_example_6', function() {
+    //     Ardublockly.loadServerXmlFile('../examples/Auto_Sterowanie.xml');
+    //     $('.button-collapse').sideNav('hide');
+    // });
+    Ardublockly.bindClick_('menu_example_7', function() {
+        Ardublockly.loadServerXmlFile('../examples/Dźwig_Sterowanie.xml');
         $('.button-collapse').sideNav('hide');
     });
 
@@ -788,4 +792,5 @@ Ardublockly.bindClick_ = function(el, func) {
     };
     el.addEventListener('ontouchend', propagateOnce);
     el.addEventListener('click', propagateOnce);
+    // el.value = 'Test';
 };

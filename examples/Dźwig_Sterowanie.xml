@@ -1,0 +1,720 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="9UVv/giv]S4Trc)7^tG`" x="-43" y="11">
+    <statement name="SETUP_FUNC">
+      <block type="variables_set" id="!u(L6LB:,mE20QWhEOX7">
+        <field name="VAR">pozycja</field>
+        <value name="VALUE">
+          <block type="variables_set_type" id="(mQhX_vV)3c8y8t7(=JQ">
+            <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+            <value name="VARIABLE_SETTYPE_INPUT">
+              <block type="math_number" id="FK#(as8*9?`tHn2%Etnm">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="gkBH@ImWg|[Y];PU^#uT">
+            <field name="VAR">silnik</field>
+            <value name="VALUE">
+              <block type="variables_set_type" id="*1@e0rTYgYlA+{[z7/`!">
+                <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                <value name="VARIABLE_SETTYPE_INPUT">
+                  <block type="math_number" id="5a)Xkb088th5nt#0/4^U">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="5iV!8%9RVpLl9QiWbma;">
+                <field name="VAR">kierunek</field>
+                <value name="VALUE">
+                  <block type="variables_set_type" id="{7?P@M4Aa#v=^KXsDryC">
+                    <field name="VARIABLE_SETTYPE_TYPE">BOOLEAN</field>
+                    <value name="VARIABLE_SETTYPE_INPUT">
+                      <block type="logic_boolean" id="JL?Gl#;I)s*0hrn;MWf%">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="V[ui@Prn7bvYK9`T9m,1">
+                    <field name="VAR">predkosc</field>
+                    <value name="VALUE">
+                      <block type="variables_set_type" id="xIz@?LZhX*c/QyY`(j}_">
+                        <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                        <value name="VARIABLE_SETTYPE_INPUT">
+                          <block type="math_number" id="%@e.scwECe!uPRIYrCoT">
+                            <field name="NUM">50</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="crane_lcd_display" id=")KMzFEO18Zeb5Z5s6|+H">
+                        <value name="POSX">
+                          <block type="math_number" id="bkGU2mMZliD3-@PE~U_Y">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="POSY">
+                          <block type="math_number" id="@3@m-n`ISI1;F26GkC^n">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <block type="text" id=",o@8Iuh%b1hjy7~}Nk17">
+                            <field name="TEXT">----- MK2 ------</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="crane_motor_setup" id="c2JWI^alayh[]U~oz_A-">
+                            <value name="MOTOR">
+                              <block type="crane_motor_type" id="6,JGtQ^nGFk+l@_Ct5=X">
+                                <field name="TYPE">0</field>
+                              </block>
+                            </value>
+                            <value name="MIN">
+                              <block type="crane_motor_angle" id="v9%(*e@wW-@oA`BdHmpv">
+                                <field name="ANGLE">-60</field>
+                              </block>
+                            </value>
+                            <value name="MAX">
+                              <block type="crane_motor_angle" id="TfmU[i}L2!6Bm{DR8#[*">
+                                <field name="ANGLE">60</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="crane_motor_setup" id="}/zK`D%M%@/S@=/M{l5=">
+                                <value name="MOTOR">
+                                  <block type="crane_motor_type" id="W_5w-TxqQE:qAOa48XD,">
+                                    <field name="TYPE">1</field>
+                                  </block>
+                                </value>
+                                <value name="MIN">
+                                  <block type="crane_motor_angle" id="aMj1yPEW66`WPQ*,}19e">
+                                    <field name="ANGLE">-15</field>
+                                  </block>
+                                </value>
+                                <value name="MAX">
+                                  <block type="crane_motor_angle" id="H`-SJ^MYYt[]btr^`4(G">
+                                    <field name="ANGLE">45</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="crane_motor_setup" id="XyFYxS,M^9J?f9]AKl[i">
+                                    <value name="MOTOR">
+                                      <block type="crane_motor_type" id="d#ti0QkdL(n;q:gA4[]d">
+                                        <field name="TYPE">2</field>
+                                      </block>
+                                    </value>
+                                    <value name="MIN">
+                                      <block type="crane_motor_angle" id="N}`aW0T5U0~b/7z6D(:p">
+                                        <field name="ANGLE">-90</field>
+                                      </block>
+                                    </value>
+                                    <value name="MAX">
+                                      <block type="crane_motor_angle" id="bLcBhcXeqv[?v5t|3qYm">
+                                        <field name="ANGLE">90</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="crane_motor_setup" id="E6t}t.p(AoMwG4HJXgtl">
+                                        <value name="MOTOR">
+                                          <block type="crane_motor_type" id="BaTjBoO-aRVa0V?sQlt=">
+                                            <field name="TYPE">3</field>
+                                          </block>
+                                        </value>
+                                        <value name="MIN">
+                                          <block type="crane_motor_angle" id="6XCbj!z-uvAruys;pOo3">
+                                            <field name="ANGLE">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="MAX">
+                                          <block type="crane_motor_angle" id="EL;5;/k)_VdG5ek*Joth">
+                                            <field name="ANGLE">60</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="procedures_callnoreturn" id="p-#_ejSCb}vaj,g^N4[g">
+        <mutation name="sterujSilnikiem">
+          <arg name="silnik"></arg>
+          <arg name="pozycja"></arg>
+          <arg name="kierunek"></arg>
+          <arg name="predkosc"></arg>
+        </mutation>
+        <value name="ARG0">
+          <block type="crane_motor_type" id="s75#ztFW)WrfW+S*G{Jm">
+            <field name="TYPE">0</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="crane_joystick" id="Q%l7}:7@}5H}b#r5;EAc">
+            <field name="TYPE">0</field>
+            <field name="XY">0</field>
+          </block>
+        </value>
+        <value name="ARG2">
+          <block type="logic_boolean" id="N/L[;hSUda`An~NxQe2z">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <value name="ARG3">
+          <block type="math_number" id="t;P^EOKJeowKU{mkR3uq">
+            <field name="NUM">20</field>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="I~RUl7LywK]=M}j=zH%5">
+            <mutation name="sterujSilnikiem">
+              <arg name="silnik"></arg>
+              <arg name="pozycja"></arg>
+              <arg name="kierunek"></arg>
+              <arg name="predkosc"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="crane_motor_type" id="%3sZb3gu7Y-17_zr?8Ye">
+                <field name="TYPE">1</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="crane_joystick" id="21aRIk?%yg8#SC,ZEhv]">
+                <field name="TYPE">0</field>
+                <field name="XY">1</field>
+              </block>
+            </value>
+            <value name="ARG2">
+              <block type="logic_boolean" id="RbslLb!A@u@%bnm^0{)}">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <value name="ARG3">
+              <block type="math_number" id="!k_E8u,|Ywa:XRnE(sw?">
+                <field name="NUM">50</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="e}rT,y]Q3Y_hK2H8/%UK">
+                <mutation name="sterujSilnikiem">
+                  <arg name="silnik"></arg>
+                  <arg name="pozycja"></arg>
+                  <arg name="kierunek"></arg>
+                  <arg name="predkosc"></arg>
+                </mutation>
+                <value name="ARG0">
+                  <block type="crane_motor_type" id="tHLXp,fV|V:!Z5=xN3QB">
+                    <field name="TYPE">2</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="crane_joystick" id="IP@QwhE*g`@K,i`IND9j">
+                    <field name="TYPE">1</field>
+                    <field name="XY">0</field>
+                  </block>
+                </value>
+                <value name="ARG2">
+                  <block type="logic_boolean" id="X3!lsMPW,WJ!j7g:[3uZ">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+                <value name="ARG3">
+                  <block type="math_number" id="wcj`X2KaTf+OWQT~/Gn|">
+                    <field name="NUM">20</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id=".h~nv3ZuZn`+6|4uC@_x">
+                    <mutation name="sterujSilnikiem">
+                      <arg name="silnik"></arg>
+                      <arg name="pozycja"></arg>
+                      <arg name="kierunek"></arg>
+                      <arg name="predkosc"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="crane_motor_type" id="cP}aON)o[jn)}hO|M;Cp">
+                        <field name="TYPE">3</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="crane_joystick" id="^6d##kgs=%h7pv+.Z=Ai">
+                        <field name="TYPE">1</field>
+                        <field name="XY">1</field>
+                      </block>
+                    </value>
+                    <value name="ARG2">
+                      <block type="logic_boolean" id="gQc}-#grEFNK=ILjFT-k">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                    <value name="ARG3">
+                      <block type="math_number" id=":LuStThCf_ROp*HtsKg8">
+                        <field name="NUM">50</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="8RL(vajKzThsOyWz!8wh">
+                        <value name="IF0">
+                          <block type="logic_negate" id="9C)]`ocO|owF+:iR-TMj">
+                            <value name="BOOL">
+                              <block type="crane_joystick_sw" id="d2t(Vb_bjOu%sZp6/6T_">
+                                <field name="TYPE">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="crane_motor_position" id="/VSCJ/eHu])bQg*+YuUM">
+                            <value name="MOTOR">
+                              <block type="crane_motor_type" id="7b7g.j9)m*t2qbI`vke9">
+                                <field name="TYPE">0</field>
+                              </block>
+                            </value>
+                            <value name="ANGLE">
+                              <block type="crane_motor_angle" id="`C)ZRe9VwF4jLXLuz~lD">
+                                <field name="ANGLE">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="crane_motor_position" id="9S+:kV1~JF`p}W^@*3|f" disabled="true">
+                                <value name="MOTOR">
+                                  <block type="crane_motor_type" id="4DmdCI^,Q+e~{Z):eq!n">
+                                    <field name="TYPE">1</field>
+                                  </block>
+                                </value>
+                                <value name="ANGLE">
+                                  <block type="crane_motor_angle" id="8L*tvBj1wHQN9AN-w[7(">
+                                    <field name="ANGLE">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if" id="ptd#NZF)U7K[dP(Y7x4l" disabled="true">
+                            <value name="IF0">
+                              <block type="logic_negate" id=")eyd2Dw:),nlh:WOskFH">
+                                <value name="BOOL">
+                                  <block type="crane_joystick_sw" id="93/Dbyp]RbY+td@~J?`Y">
+                                    <field name="TYPE">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="crane_motor_position" id="m%tM,^uHuYxkG5M)7=vI">
+                                <value name="MOTOR">
+                                  <block type="crane_motor_type" id="rEFH!{Ee=?k]hfw^eM(X">
+                                    <field name="TYPE">2</field>
+                                  </block>
+                                </value>
+                                <value name="ANGLE">
+                                  <block type="crane_motor_angle" id="w:_+,YVzjJ@bu}bkOey;">
+                                    <field name="ANGLE">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="crane_motor_position" id="|{^-odbB.jZ3o9%C*~N^">
+                                    <value name="MOTOR">
+                                      <block type="crane_motor_type" id="aKXl6fC!z32TSBE!`VD|">
+                                        <field name="TYPE">3</field>
+                                      </block>
+                                    </value>
+                                    <value name="ANGLE">
+                                      <block type="crane_motor_angle" id="gqIfz96I=9:(Qcl4iMr^">
+                                        <field name="ANGLE">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="crane_timer_cyclic" id="unc(wVW~gplZmIVg.N:{" x="545" y="13">
+    <value name="TIME">
+      <block type="math_number" id="C?b849`J^Rj;JL*t@+IE">
+        <field name="NUM">1000</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="io_builtin_led" id="y|`,*l7uxl;1~QxQQ*`z">
+        <field name="BUILT_IN_LED">13</field>
+        <value name="STATE">
+          <block type="io_highlow" id="?fFcX0U!?mSlVAiZdd84">
+            <field name="STATE">HIGH</field>
+          </block>
+        </value>
+        <next>
+          <block type="crane_timer_once" id="#H0b(gLV?{6nwuh`m:G4">
+            <value name="TIME">
+              <block type="math_number" id="s:X8qbogQ7=[*tA^)UMw">
+                <field name="NUM">500</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="io_builtin_led" id="!_Hy!NHczGu{m%G{[b2T">
+                <field name="BUILT_IN_LED">13</field>
+                <value name="STATE">
+                  <block type="io_highlow" id="DPC5Ccf,l#SB~-^|}^/w">
+                    <field name="STATE">LOW</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="AGX?YO/.0x8}MX35Y5#s" x="546" y="242">
+    <mutation>
+      <arg name="silnik"></arg>
+      <arg name="pozycja"></arg>
+      <arg name="kierunek"></arg>
+      <arg name="predkosc"></arg>
+    </mutation>
+    <field name="NAME">sterujSilnikiem</field>
+    <comment pinned="false" h="80" w="160">Opisz tę funkcję...</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="5;ku:)RD3SD*8m]m5A]7">
+        <mutation elseif="1" else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="lhMylkMn]PMJ/@.Y;~Zc">
+            <field name="OP">LT</field>
+            <value name="A">
+              <block type="variables_get" id="AWp+EK`t*g(u6z_6Y2=B">
+                <field name="VAR">pozycja</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="P`yY@ltSY4zfg5*EU1?7">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="BnDWncI(/3nRoy6mRnSX">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="variables_get" id="p16@YnveLu%6o%Mf!N.l">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="crane_motor" id="b^9E_O`oTBoHp9|hbJx:">
+                <value name="MOTOR">
+                  <block type="variables_get" id="-Ql?|kKCXdu6O{hcKd_b">
+                    <field name="VAR">silnik</field>
+                  </block>
+                </value>
+                <value name="FUNCTION">
+                  <block type="crane_motor_dir" id="=V;T*Cg[oFd`PJCwXTLi">
+                    <field name="DIR">-1</field>
+                  </block>
+                </value>
+                <value name="SPEED">
+                  <block type="variables_get" id="32=qpNpa*x~9ntw(4=pO">
+                    <field name="VAR">predkosc</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="crane_motor" id="o3.e@!IUSS04zwJ.DNbR">
+                <value name="MOTOR">
+                  <block type="variables_get" id="+Il?gyZJF=lu!w@Hj+?K">
+                    <field name="VAR">silnik</field>
+                  </block>
+                </value>
+                <value name="FUNCTION">
+                  <block type="crane_motor_dir" id="5yVAU#8}XnO3_mtJJB*r">
+                    <field name="DIR">1</field>
+                  </block>
+                </value>
+                <value name="SPEED">
+                  <block type="variables_get" id="?):30)o!1/hx42L6^W=o">
+                    <field name="VAR">predkosc</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="D2vMX(SlWx[.GA9)v)]8">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="variables_get" id="yfv2Mi^7V.:O]2f^IPt~">
+                <field name="VAR">pozycja</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="3?[j3`5UNHLg9@O_wqmI">
+                <field name="NUM">800</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="controls_if" id="6Q+3=:*;;z/lCX^3H/,g">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="variables_get" id="y+w%H{GsSD1^mYX)!?hp">
+                <field name="VAR">kierunek</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="crane_motor" id="|M:z1#Sn@cXO}tSIdhB=">
+                <value name="MOTOR">
+                  <block type="variables_get" id="46xD9S,hkvTh12RzJJ/W">
+                    <field name="VAR">silnik</field>
+                  </block>
+                </value>
+                <value name="FUNCTION">
+                  <block type="crane_motor_dir" id="M}/?mrMV|a`v[{l5[+T]">
+                    <field name="DIR">1</field>
+                  </block>
+                </value>
+                <value name="SPEED">
+                  <block type="variables_get" id="ISQj^Qw6hGoz1Zxq@|Jj">
+                    <field name="VAR">predkosc</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="crane_motor" id="br:OoZqODp~+T@[gtbwP">
+                <value name="MOTOR">
+                  <block type="variables_get" id=",|u`7mOa(%^yy[-bK;Zr">
+                    <field name="VAR">silnik</field>
+                  </block>
+                </value>
+                <value name="FUNCTION">
+                  <block type="crane_motor_dir" id="AaEx8wG8h*I098j,#F@J">
+                    <field name="DIR">-1</field>
+                  </block>
+                </value>
+                <value name="SPEED">
+                  <block type="variables_get" id="E5v,NOTl_z^/|N=war8c">
+                    <field name="VAR">predkosc</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="crane_motor" id="Dgy/1SQSE~CuI.2WR7m%">
+            <value name="MOTOR">
+              <block type="variables_get" id=".}O#E=e3LT^TI29)v!=I">
+                <field name="VAR">silnik</field>
+              </block>
+            </value>
+            <value name="FUNCTION">
+              <block type="crane_motor_dir" id="vS4[`)o(T0ad[@MxG[q.">
+                <field name="DIR">0</field>
+              </block>
+            </value>
+            <value name="SPEED">
+              <block type="math_number" id="Kf(D`4w1m*KO)C7a~@3g">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="crane_timer_cyclic" id="t;Oq8SIJET9Po{+j(6*z" x="513" y="731">
+    <value name="TIME">
+      <block type="math_number" id="s(J6en#`KfQx8Uww]4B1">
+        <field name="NUM">250</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="crane_lcd_display" id="dZa^;%*?2r2nw3U^nBT9">
+        <value name="POSX">
+          <block type="math_number" id="%BisXAIX[IZqyq9@vxQl">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="POSY">
+          <block type="math_number" id="e3FyQ9yR9PDVRQ#Ex:j,">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="text_join" id="wcaoBOe-V*lbdKN8w8zm">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="text" id="/@?u!6O^`:W*Q^zoy|%Q">
+                <field name="TEXT">L/P:</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="crane_motor_position_get" id="l~j8W|a3o|F1+k,s)`XN">
+                <value name="MOTOR">
+                  <shadow type="crane_motor_type" id="P{v?1Nct:BN)luLe^|dr">
+                    <field name="TYPE">2</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="|VdUJv?F9?CY#Gq61.5y">
+                <field name="TEXT">   </field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="crane_lcd_display" id="RM.,pZ-rMw/Uww+Fsc;5">
+            <value name="POSX">
+              <block type="math_number" id="w*PO*n0oe8;pt[q@|8O)">
+                <field name="NUM">8</field>
+              </block>
+            </value>
+            <value name="POSY">
+              <block type="math_number" id="Ie+[dCjZ}H4BpTItJyHq">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="VALUE">
+              <block type="text_join" id="4AA{MHoD0)nca{NGKSG)">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="-wkP1HHj6skrHA;e(erZ">
+                    <field name="TEXT">Chw:</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="crane_motor_position_get" id="3kw@q(dA/(I0Ny|AA*`q">
+                    <value name="MOTOR">
+                      <shadow type="crane_motor_type" id="sp%7#cmxJdTx55epH]l}">
+                        <field name="TYPE">0</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text" id="hsiu*V%2URqflo#Qb]ri">
+                    <field name="TEXT">   </field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="crane_lcd_display" id="(h%iw,)cSt5Ca?M`@8)S">
+                <value name="POSX">
+                  <block type="math_number" id=";zMQoJuQ-@bXJ2TY-O`_">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="POSY">
+                  <block type="math_number" id="rv@m_Gn2Uafz7E#o+P,8">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="text_join" id="QS/XGq!,GPE[n%At/eL9">
+                    <mutation items="3"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="6}`vx~Do6nX*xZ1)h:PI">
+                        <field name="TEXT">P/T:</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="crane_motor_position_get" id="k1T72ND_4%wo}Qk4SzVx">
+                        <value name="MOTOR">
+                          <shadow type="crane_motor_type" id="iG7Mad=sES[OBm{P?`lx">
+                            <field name="TYPE">3</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ADD2">
+                      <block type="text" id="l)YA:6LKL?+Tm1lApzyh">
+                        <field name="TEXT">   </field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="crane_lcd_display" id="y/UkRTamJKePy7*i!!:,">
+                    <value name="POSX">
+                      <block type="math_number" id="`M.c2xKcmbB*WkGZ+feG">
+                        <field name="NUM">8</field>
+                      </block>
+                    </value>
+                    <value name="POSY">
+                      <block type="math_number" id="jC+8qP#@6xp(map,.hLZ">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="VALUE">
+                      <block type="text_join" id="Vnq}6CP7g9k[r{[jLmpp">
+                        <mutation items="3"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="qXkf4FUsgOP:FiggPoAW">
+                            <field name="TEXT">G/D:</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="crane_motor_position_get" id="NfXbuQ.N-g55FX}G8zX(">
+                            <value name="MOTOR">
+                              <shadow type="crane_motor_type" id="M/G{0E2I]KwozG*44/g@">
+                                <field name="TYPE">1</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="text" id="R=Svm0FyP3)F38R?EE2p">
+                            <field name="TEXT">   </field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

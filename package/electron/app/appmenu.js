@@ -216,62 +216,62 @@ var getEditMenuData = function() {
     return editMenud;
 };
 
-var getExamplesMenuData = function() {
-    return {
-        label: 'Examples',
-        submenu: [
-            {
-                label: 'Auto Bluetooth',
-                click: function() {
-                     BrowserWindow.getFocusedWindow().webContents
-                        .executeJavaScript(
-                            'Ardublockly.loadServerXmlFile("../examples/' +
-                            'Auto_Bluetooth.xml");');
-                }
-            }, {
-                label: 'Auto Sterowanie',
-                click: function() {
-                     BrowserWindow.getFocusedWindow().webContents
-                        .executeJavaScript(
-                            'Ardublockly.loadServerXmlFile("../examples/' +
-                            'Auto_Sterowanie.xml");');
-                }
-            }, {
-                label: 'Auto Światła',
-                click: function() {
-                     BrowserWindow.getFocusedWindow().webContents
-                        .executeJavaScript(
-                            'Ardublockly.loadServerXmlFile("../examples/' +
-                            'Auto_Światła.xml");');
-                }
-            }, {
-                label: 'Auto Dźwięk',
-                click: function() {
-                     BrowserWindow.getFocusedWindow().webContents
-                        .executeJavaScript(
-                            'Ardublockly.loadServerXmlFile("../examples/' +
-                            'Auto_Dźwięk.xml");');
-                }
-            }, {
-                label: 'Auto Sensor',
-                click: function() {
-                     BrowserWindow.getFocusedWindow().webContents
-                        .executeJavaScript(
-                            'Ardublockly.loadServerXmlFile("../examples/' +
-                            'Auto_Sensor.xml");');
-                }
-            }, {
-                label: 'Auto Napęd',
-                click: function() {
-                     BrowserWindow.getFocusedWindow().webContents
-                        .executeJavaScript(
-                            'Ardublockly.loadServerXmlFile("../examples/' +
-                            'Auto_Napęd.xml");');
-                }
-            }
-        ]
-    };
-};
+// var getExamplesMenuData = function() {
+//     return {
+//         label: 'Examples',
+//         submenu: [
+//             {
+//                 label: 'Auto Bluetooth',
+//                 click: function() {
+//                      BrowserWindow.getFocusedWindow().webContents
+//                         .executeJavaScript(
+//                             'Ardublockly.loadServerXmlFile("../examples/' +
+//                             'Auto_Bluetooth.xml");');
+//                 }
+//             }, {
+//                 label: 'Auto Sterowanie',
+//                 click: function() {
+//                      BrowserWindow.getFocusedWindow().webContents
+//                         .executeJavaScript(
+//                             'Ardublockly.loadServerXmlFile("../examples/' +
+//                             'Auto_Sterowanie.xml");');
+//                 }
+//             }, {
+//                 label: 'Auto Światła',
+//                 click: function() {
+//                      BrowserWindow.getFocusedWindow().webContents
+//                         .executeJavaScript(
+//                             'Ardublockly.loadServerXmlFile("../examples/' +
+//                             'Auto_Światła.xml");');
+//                 }
+//             }, {
+//                 label: 'Auto Dźwięk',
+//                 click: function() {
+//                      BrowserWindow.getFocusedWindow().webContents
+//                         .executeJavaScript(
+//                             'Ardublockly.loadServerXmlFile("../examples/' +
+//                             'Auto_Dźwięk.xml");');
+//                 }
+//             }, {
+//                 label: 'Auto Sensor',
+//                 click: function() {
+//                      BrowserWindow.getFocusedWindow().webContents
+//                         .executeJavaScript(
+//                             'Ardublockly.loadServerXmlFile("../examples/' +
+//                             'Auto_Sensor.xml");');
+//                 }
+//             }, {
+//                 label: 'Auto Napęd',
+//                 click: function() {
+//                      BrowserWindow.getFocusedWindow().webContents
+//                         .executeJavaScript(
+//                             'Ardublockly.loadServerXmlFile("../examples/' +
+//                             'Auto_Napęd.xml");');
+//                 }
+//             }
+//         ]
+//     };
+// };
 
 var getProgramMenuData = function() {
     return {
